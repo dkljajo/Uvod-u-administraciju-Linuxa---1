@@ -3,8 +3,8 @@
 Ispod možete naći bilješke iz materijala [**Osnove administracije operacijskog sustava 1 (Linux) - Ivan Rako**].
 Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu baviti administracijom operativnog sustava Linux.
 
-- [📖 1 UVOD U LINUX](#1-Uvod u Linux)
-- [📖 2 INSTALACIJA LINUXA](#2-Instalacija Linuxa)
+- [📖 1 UVOD](#1-uvod)
+- [📖 2 INSTALACIJA LINUXA](#2-instalacija-linuxa)
 - [📖 3 NAREDBENA LINIJA](#3-Naredbena linija)
 - [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-Upravljanje datotekama i direktorijima)
 - [📖 5 OBRADA TEKSTA](#5- Obrada teksta)
@@ -15,7 +15,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 - [📖 10 UPRAVLJANJE PROCESIMA](#10-Upravljanje procesima)
 - [📖 11 INSTALACIJA SOFTVERA](#5-Instalacija softvera)
 
-# 📖 1 UVOD U LINUX
+# 📖 1 UVOD
 
 - Linux je ime za jezgru (kernel) OS-a sličnog Unix-u, a dobio je ime po Linusu Torvaldsu.
 - Linus je 1991. g. objavio izvorni kod na Internetu, te pozvao sve zainteresirane da sudjeluju u njegovom daljnjem razvoju.
