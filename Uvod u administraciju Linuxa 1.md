@@ -167,3 +167,8 @@ Kod ovog načina instalacije na mediju već se nalaze svi programski paketi potr
 
 
 # 📖 3 NAREDBENA LINIJA
+
+## 3.1. DOKUMENTACIJA
+
+### Stranica man
+
