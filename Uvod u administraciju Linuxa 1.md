@@ -5,7 +5,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 
 - [📖 1 UVOD](#1-uvod)
 - [📖 2 INSTALACIJA LINUXA](#2-instalacija-linuxa)
-- [📖 3 NAREDBENA LINIJA](#3-Naredbena linija)
+- [📖 3 NAREDBENA LINIJA](#3-naredbena-linija)
 - [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-Upravljanje datotekama i direktorijima)
 - [📖 5 OBRADA TEKSTA](#5- Obrada teksta)
 - [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno upravljanje tekstom)
@@ -124,4 +124,46 @@ gateway, subnet maska i DNS.
 - /proc - virtualni datotečni sustav za prikaz rada kernela i procesau obliku tekstualnih datoteka;
 -  /sbin - važni sistemski programi (npr.:  `init` ,  `route`, `ifconfig` )
 
+Kada je root motiran (priključen), direktoriji i poddirektoriji na tom uređaju (root device) mogu se koristiti kao točke montiranja i za druge resurse, formirajući tako slijed direktorija uređen kao stablo!
 
+- Program za pokretanje OS-a (bootloader) prilikom pokretanja OS-a daje kernelu informacije gdje se nalazi root device.
+- Drugi uređaji su montirani čitajući instrukcije iz datoteke /etc/fstab.
+
+## SWAP
+
+- Prostor za SWAP na Linuxu je jedan oblik virtualne memorije. To znači ako računalo ostane bez radne memorije, može da koristi virtualnu memoriju ili swap.
+- Particija SWAP je osnovna za procese suspendiranja i hibernacije računala.
+- Tokom particioniranja diskova treba donijeti odluku koliko je prostora potrebno za particiju SWAP. Za to nema određenih pravila , a veličina prostora za SWAP ovisi o vrsti aplikacija koje se pokreću na računalu.
+- Preporučena vrijednost SWAP particije tradicionalno je bila dvostruko veća od količine ugrađene radne memorije (RAM-a).
+
+## Instalacija distribucije Debian GNU/Linux
+
+Postoje 2 načina instalacije distribucije Debiana:
+- mrežna instalacija;
+- cjelovita instalacija sa medija.
+
+Podrazumjevano grafičko sučelje koje dolazi sa distribucijom Debian GNU/Linux je GNOME.
+Prilikom instalacije moguće je odabrati i neke još 3 najčešće upotrebljavana grafička sučelja:
+- KDE (K Desktop Environment);
+- LXDE;
+- Xfce.
+
+- Mrežna instalacija :
+Kod ovog načina instalacije na mediju se nalaze samo mrežne datoteke za pokretanje procedure. Svi se drugi paketi preuzimaju izravno sa udaljenog servera na kojem se nalazi repozitorij Debian paketa. Instalacijski medij je relativno malen ( oko 200 MB) i može se brzo preuzeti na računalo. To je ujedno i najčešći način instalcije Linux Debian OS-a.
+
+- Cjelovita instalacija s medija:
+Kod ovog načina instalacije na mediju već se nalaze svi programski paketi potrebni za instalaciju Debiana.
+
+## Instalacija Debian Linuxa
+
+- Prije instalacije treba prikupiti podatke o mrežnim parametrima servera na koji će se instalirati OS Debian.
+- Ako je konfiguracija mrežnih parametara dinamička (DHCP), ti će se parametri podesiti automatski.
+- Ako je konfiguracija statička, treba prikupiti i IP adresu, mrežnu masku, default gateway i adrese DNS-ova.
+- I kod statičke i dinamičke konfiguracije potrebno je prije pripremiti ime računla i njegovu domenu.
+- Potrebno je zatim i odabrati regionalne postavke;
+- Slijedi postavka mreže, lozinke i izrada prvog korisničkog računa;
+- Zatim slijedi particioniranje diskova, odabir točke montiranja i kreiranja swap particije;
+- Na kraju slijedi odabir dodatnog softvera i prijava na sustav , gdje se kreira i GRUB bootloader koji je pokretač OS-a i može raditi i sa Windows i Linux OS-ovima.
+
+
+# 📖 3 NAREDBENA LINIJA
