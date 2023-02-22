@@ -22,7 +22,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 Tako da je danas kernel Linuxa zajedničko djelo progtramera i hakera diljem svijeta.
 - Linux je slobodan softver.
 Za njegov spontani razvoj zaslužni su brzi razvoj Interneta i licenca za korištenje GPL.
-- 1996. g. utemeljen je KDE (K Desktop Environment), koji je Linuxu dao vrhunsko grafičko sučelje.
+1996. g. utemeljen je KDE (K Desktop Environment), koji je Linuxu dao vrhunsko grafičko sučelje.
 Budući da KDE u početku nije bio slobodan softver, potaknula je godinu kasnije razvoj grafičkog sučelja GNOME.
 
 ## Prednosti uporabe Linuxa
