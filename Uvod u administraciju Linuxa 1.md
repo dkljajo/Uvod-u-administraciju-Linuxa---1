@@ -6,7 +6,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 - [📖 1 UVOD](#1-uvod)
 - [📖 2 INSTALACIJA LINUXA](#2-instalacija-linuxa)
 - [📖 3 NAREDBENA LINIJA](#3-naredbena-linija)
-- [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-Upravljanje datotekama i direktorijima)
+- [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-upravljanje-datotekama-i-direktorijima)
 - [📖 5 OBRADA TEKSTA](#5- Obrada teksta)
 - [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno upravljanje tekstom)
 - [📖 7 UREĐIVAČ TEKSTA VI](#7-Uređivač teksta vi)
@@ -465,5 +465,36 @@ ls: cannot access /etc/ne_postoji: No such file or directory
 
 ### 3.2.10 Naredba exec
 
+- Naredba exec rabi se kad želimo zamijeniti trenutačnu interaktivnu ljusku s nekim drugim programom:
+
+` exec program`
+
+- Kad se korisnik prijavi u sustav kao administratorski korisnik root, automatski će se pokrenuti ljuska bash. Ako korisnik želi promijeniti trenutačnu ljusku u zsh, pokrenut će naredbu:
+
+`# exec zsh`
+
+- Kod takve upotrebe naredbe exec ne stvara se novi proces, kao što bi se dogodilo da smo ovako pokrenuli novi proces:
+
+`# zsh`
+
+nego se postojeći zamjenjuje sa zsh.
+
+- U sljedećem je primjeru vidljivo da je pokretanjem ljuske zsh pomoću naredbe exec nova ljuska zsh dobila isti identifikacijski broj procesa kao i stara ljuska bash (9823). Znači, proces stare ljuske je nestao i umjesto njega je pod istim identifikacijskim brojem pokrenuta nova ljuska.
+
+Naredba ps služi za ispisivanje popisa aktivnih procesa, a naredba grep za filtriranje linija koje sadrže određenu riječ.
+
+```
+# ps -ef | grep bash | grep -v grep 
+root 9823 16169 0 18:00 pts/5 00:00:00 bash 
+# exec zsh 
+# ps -ef | grep 9823 | grep -v grep 
+root 9823 16169 0 18:00 pts/5 00:00:00 zsh
+```
 
 
+
+
+
+
+
+# 📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA
