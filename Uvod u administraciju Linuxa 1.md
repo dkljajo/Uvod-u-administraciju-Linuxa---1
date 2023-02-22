@@ -172,3 +172,54 @@ Kod ovog načina instalacije na mediju već se nalaze svi programski paketi potr
 
 ### Stranica man
 
+- Linux sustavi su generalno jako dobro dokumentirani.
+- Informacije o korištenju određene naredbe ili funkcije mogu se naći na tzv. man stranicama.
+- MAN (Unix Programmer's Manual)pružaju informacije o naredbama, sistemskim pozivima, formatima datoteka i održavanju sustava.
+- sintaksa naredbe man:
+   `man mkdir`
+   
+- MAN stranice su podijeljene u nekoliko dijelova:
+- NAME - naziv naredbe;
+- SYNOPSYS - prikazuuje sintaksu naredbe i raspoložive opcije i argumente;
+- DESCRIPTION - pregled djelovanja datoteke;
+- OPTIONS - raspoložive opcije koje mjenjaju funkciju ili efekt naredbe;
+- OPERANDS - cilj naredbe na kojemu se naredba izvršava;
+- FILES - datoteke vezane za tu naredbu;
+- SEE ALSO - upućuje na povezane naredbe i teme.
+
+### Naredba whatis
+
+- Naredba whatis služi za pretraživanje man stranica po ključnoj riječi.
+  `whatis mkdir`
+  
+## 3.2. NAREDBENA LINIJA
+
+### 3.2.1. Interaktivna ljuska (shell)
+
+- Osnovni način interakcije sa računalom na Linuxu je naredbena linija.
+- Ljuska (shell) interpretira instrukcije utipkane sa tastature.
+- Kao posrednik između korisnika i OS-a služi program koji se zove ljuska (eng. shell).
+- Shell je zapravo programski jezik sa varijablama, kontrolnim naredbama, potprogramima, prekidima itd. Organiziran je kao tumač ili interpreter naredbi,
+što znači da pročita redak teksta, interpretira naredbu i poduzme sve potrebne akcije za njezino izvođenje.
+Kada je naredba izvedena, ljuska (shell) daje informaciju korisniku (prompt) da je spremna prihvatiti sljedeću naredbu.
+Prompt ljuske završava znakom $ za običnog korisnika ili znakom # za administratora.
+
+- Ljuska (shell) nije dio kernela sustava, nego korisnički program. Svatko može napisati svoj program koji će imati ulogu ljuske, međutim poželjno je da to bude standardni program rasprostranjen na svim instalacijama Linuxa, čime se postiže kompatibilnost rada na različitim računalima.
+- Ljuska je također i programsko okruženje u kojem se mogu izvoditi automatizirani zadaci.
+- Programi ljuske (shell programs) nazivaju se skripte.
+
+- Najčešće ljuske:
+- /bin/sh - The Bourne Shell
+- /bin/bash - The Bourne Again Shell
+- /bin/ksh - The Korn Shell
+- /bin/csh - The C Shell
+- /bin/tcsh - Tom's C Shell 
+- /bin/zsh - Z Shell
+
+- Najčešće upotrebljavana ljuska na Linux distribucijama je BASH ( The Bourne Again Shell).
+- Sintaksa naredbe ljuske:
+  `naredba [opcije] {argumenti}`
+  ```
+  $ echo "ovo je tekst" 
+  ovo je tekst
+  ```
