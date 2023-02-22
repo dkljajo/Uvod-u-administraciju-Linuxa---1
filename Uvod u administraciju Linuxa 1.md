@@ -372,3 +372,18 @@ $ cat /tmp/popis.txt
 /etc/passwd-
 ```
 
+### 3.2.7. Metaznakovi
+
+Metaznakovi:
+
+- * - zamjenjuje bilo koju skupinu slova u riječi
+- ? - zamjenjuje bilo koje slovo u riječi
+- [..] - zamjenjuje bilo koji od znakova u zagradama
+- ~ - označuje korisnikovo izvorno kazalo, tj. korisnikov kućni direktorij (home directory)
+- > znači preusmjerivanje izlaza
+- < - znači preusmjerivanje ulaza
+- >> - znači dodavanje izlazu
+- | - znači povezivanje procesa u kanale
+- & - znači nalog za izvođenje procesa (naredbe) u pozadini
+- ! - (u prvom stupcu naredbe) poziva jednu od prethodno zadanih naredbi
+
