@@ -300,3 +300,17 @@ $ echo $SHELL
 
 ### 3.2.5. Preusmjeravanje standardnog ulaza i izlaza
 
+- Programima (procesima) aktiviranim iz ljuske (shella) automatski se pridjeljuju 3 "otvorene" datoteke:
+stdin (standard input), stdout (standard output), stderr (standard error) sa pripadajućim brojevima : 0,1, i 2.
+- Ti brojevi (File Descriptors) opisuju (adresiraju) "otovorene datoteke".
+- Pojam "otvorene datoteke" označava da određeni proces ima vlasništvo nad dotičnom datotekom.
+- Datoteka stdin (0) je otvorena za čitanje; a rabi se kao standardni ulaz i obično je to tipkovnica.
+- Datoteka stdout (1) je otvorena za pisanje i upotrebljava se kao standardni izlaz (po definiciji je to korisnički ekran).
+- Datoteka stderr (2) je otvorena za pisanje i upotrebljava se za ispis pogrešaka (isto tako je u pitanju korisnikov ekran).
+- Ljuska (shell) može mjenjati dodijeljene ulazno-izlazne datoteke.
+- To se postiže specijalnim znakovima <, > ili 2> u retku naredbe ispred imena datoteke za koju želimo da bude  standardni ulaz ili izlaz.
+- Pritom izlaz za pogreške ostaje nepromjenjen (ekran).
+- Time se izbjegava da poruke o pogreškama budu "sakrivene" u nekoj datoteci.
+- Znakove < i > tumači ljuska (shell) i ne prosljeđuje ih samoj naredbi.
+- Zato nije potrebno posebno kodiranje u tom slučaju.
+
