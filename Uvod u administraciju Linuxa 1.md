@@ -79,3 +79,30 @@ Projekt Nginx pokrenut je sa fokusom na visoku konkurentnost, performanse i malu
 - PostgreSQL je robustan , objektno orjentiran sustav za upravljanje relacijskim bazama podataka otvorenog koda, i sadrži bogat izvor vrsta podataka, laku nadogradivost i nadograđeni skup SQL naredbi.
 - MySQL je također sustav za upravljanje bazama podataka otvorenog koda i čest je izbor baze za projekte otvorenog koda, a distribuira se kao sastavni dio server distribucija. MySQL je optimiziran da bude brz nauštrb njegove funkcionalnosti.
 Nasuprot tome, vrlo je stabilna i ima dobro dokumentirane module i ekstenzije, te podršku brojnih programskih jezika: PHP, Java, Pearl, Python,....
+
+## Serveri elektroničke pošte
+
+- Sendmail je praktično najčešći i najrašireniji, a i jedan od prvih programa za razmjenu elektroničke pošte.
+Sendmail glasi kao brz, skalabilan i potpun MTA (Mail Transfer Agent) - u smislu podržavanja najvećeg broja mogućnosti i proširenja protokola.
+Riječ je o jednom od najpotpunijih i vjerojatno najsloženijih MTA-ova na tržištu.
+- Postfix je program napisan kao alternativa Sendmailu. Postfix je prilično sigurna implementacija SMTP-a (Simple Mail Transfer Protocol) i
+arhitekturalno je server podijeljen na niz minimalnih jednostavnih servisa, od kojih svaki obavlja svoj posao.
+Postfix je brz, učinkovit i siguran.
+
+## DNS BIND
+
+- DNS (Domain Name Server) je hijerarhijsko raspoređen sustav imenovanja računala, servisa ili  bilo kojeg uređaja spojenog na mrežu.
+On povezuje različite informacije sa domenskim imenima pripisanim svakom od subjekata u domeni.
+Prevodi lako pamtljiva imena u numeričke IP adrese, koje su potrebne za lociranje servisa i uređaja.
+- 1984 godine je BIND koji se naširoko distribuirao i bio je dominantan imenički server korišten na Internetu.
+- Bind je otvorenog koda i postao je de facto standard za imeničke servere.
+
+## ISC DHCP
+
+- DHCP (Dynamic Host Configuration Protocol) je mrežni protokol koji se koristi za automatsko dodjeljivanje IP adresa i drugih mrežnih postavki kao što su:
+gateway, subnet maska i DNS.  
+- ISC DHCP (Internet Software Consorcium DHCP) je najpoznatija implementacija otvorenog koda.
+
+# 📖 2. INSTALACIJA LINUXA
+
+
