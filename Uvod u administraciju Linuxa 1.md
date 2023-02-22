@@ -1,6 +1,6 @@
 # Uvod u administraciju Linuxa 1 - Bilješke
 
-Ispod možete naći bilješke iz materijala [**Osnove administracije operacijskog sustava 1 (Linux) - Ivan Rako**].
+Ispod možete naći bilješke iz materijala [**Osnove administracije operacijskog sustava 1 (Linux) - Ivan Rako**](https://www.srce.unizg.hr/files/srce/docs/edu/l101_polaznik_1.pdf).
 Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu baviti administracijom operativnog sustava Linux.
 
 - [📖 1 UVOD](#1-uvod)
