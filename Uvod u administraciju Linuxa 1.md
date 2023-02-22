@@ -105,4 +105,23 @@ gateway, subnet maska i DNS.
 
 # 📖 2. INSTALACIJA LINUXA
 
+## Struktura datotečnog sustava
+
+- Za pristupanje resursima na tvrdom disku , OS se koristi mehanizmom koji se zove montiranje (mounting). Za Linux OS-ove to znači da se spaja (montira) na direktorij koje se zove točka montiranja (mount point).
+
+- Za korisnika je datotečni sustav jednostavno stablo s direktorijima i poddirektorijima.
+- Korijen tog stabla se zove root i pokazuje se znakom: / 
+- To je prvi direktorij na koji OS uključuje disk ili neki resurs, koji se onda zove root device.
+- Vaćno je naglasiti da postoji i direktorij /root , koji služi za korisničke podatke administratorskog korisnika root.
+- Proces dijeljenja diska na manje dijelove (particije) se zove particioniranje diska.
+
+- / - Primarna hijerarhija, root direktorij cjelokupnog sustava i "početak";
+- /bin - izvršne datoteke važnih naredbi na rzini single-user moda, i naredbe za sve korisnike;
+- /dev - Datoteke koje predstavljaju same fizičke i virtualne direktorije;
+- /etc - konfiguracijske datoteke sustava koje vrijede za cijeli sustav;
+- /lib - važne biblioteke za programe iz direktorija /bin/ i /sbin/ ;
+- /mnt - privremeno montirani datotečni sustavi;
+- /proc - virtualni datotečni sustav za prikaz rada kernela i procesau obliku tekstualnih datoteka;
+-  /sbin - važni sistemski programi (npr.:  'init' ,  'route', 'ifconfig' )
+
 
