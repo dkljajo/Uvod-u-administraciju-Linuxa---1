@@ -372,27 +372,54 @@ $ cat /tmp/popis.txt
 /etc/passwd-
 ```
 
-### 3.2.7. Metaznakovi
+### 3.2.7. Povijest naredbi (history)
 
-Metaznakovi:
+- Da bi se izlistao popis već prije pokrenutih naredbi, ljuska (shell) ima ugrađenu naredbu: history.
+- Naredba history pokreće se bez argumenata i daje popis izvršenih naredbi:
 
--    * -- zamjenjuje bilo koju skupinu slova u riječi
+```
+$ history 
+1 VRIJEME="Danasnji datum je `date +%d.%m.%Y.`" 
+2 echo $VRIJEME
+```
 
--    ? -- zamjenjuje bilo koje slovo u riječi
+- Ljuska (shell) popis svih naredbi snima u datoteku ~/.bash_history 
 
--    [..] -- zamjenjuje bilo koji od znakova u zagradama
+- Korisnik može i strelicama na tipkovnici gore i dole doći do neke od ranije izvršenih naredbi, odabirom i pritiskom na tipku : Enter
 
--   ~ -- označuje korisnikovo izvorno kazalo, tj. korisnikov kućni direktorij (home directory)
+- Ako korisnik kao prvi znak naredbe unese znak !, te iza njega neki drugi znak, ljuska (shell) će pokrenuti zadnju izvršenu naredbu koja je počinjala sa tim znakom.
+- Ako odaberete broj iz povijesti, koji je dobijen naredbom history izvršit će se naredba pod tim rednim brojem.
 
--    > -- znači preusmjerivanje izlaza
+Sljedeća naredba pokreće zadnju izvršenu naredbu koja je započinjala znakom x:
+`$ !x`
 
--    < -- znači preusmjerivanje ulaza
+Sljedeća naredba pokreće naredbu s rednim brojem 2 u povijesti naredbi:
+`$ !2`
 
--    >> -- znači dodavanje izlazu
+Sljedeća naredba pokreće zadnju izvršenu naredbu:
+`$ !!`
 
--    | -- znači povezivanje procesa u kanale
+Sljedeća naredba pokreće zadnju naredbu tako da zamijeni string1 sa string2 u toj naredbi:
+`$ ^string1^string2`
 
--    & -- znači nalog za izvođenje procesa (naredbe) u pozadini
+### 3.2.8. Aliasi i automatsko nadopunjavanje
 
--    ! -- (u prvom stupcu naredbe) poziva jednu od prethodno zadanih naredbi
+- Ako korisnik ima potrebu za češćim pokretanjem određene naredbe , može napraviti alias ( sa naredbom: alias)
+
+`$ alias mojprogram='naredba [opcije] {argumenti}'`
+
+- Slijedi primjer gdje se izrađuje alias naziva trazi koji pokreće naredbu find /etc -name passwd.
+- Alias trazi time pokreće naredbu find koja pretražuje direktorij /etc i traži sve datoteke koje se zovu passwd.
+
+```
+$ alias trazi='find /etc -name passwd' 
+$ trazi 
+/etc/pam.d/passwd 
+/etc/cron.daily/passwd 
+/etc/passwd
+```
+
+- Ako se alias želi poništiti, to se može naredbom unalias. Dovoljno je u argumentu naredbe dodati alias koji se briše:
+
+`$ unalias trazi`
 
