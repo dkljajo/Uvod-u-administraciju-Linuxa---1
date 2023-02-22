@@ -122,6 +122,6 @@ gateway, subnet maska i DNS.
 - /lib - važne biblioteke za programe iz direktorija /bin/ i /sbin/ ;
 - /mnt - privremeno montirani datotečni sustavi;
 - /proc - virtualni datotečni sustav za prikaz rada kernela i procesau obliku tekstualnih datoteka;
--  /sbin - važni sistemski programi (npr.:  'init' ,  'route', 'ifconfig' )
+-  /sbin - važni sistemski programi (npr.:  `init` ,  `route`, `ifconfig` )
 
 
