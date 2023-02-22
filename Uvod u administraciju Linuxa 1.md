@@ -330,3 +330,45 @@ Ako se želi standardni izlaz za pogreške preusmjeriti u neku datoteku, to se p
 
 `$ naredba 2> ime_dat`
 
+### 3.2.6 Ulančavanje procesa
+
+- Važna je osobina Unix/Linux OS-ova mogućnost ulančavanja procesa, tj. stvaranje kanala (pipes) kojima se izlaz iz jednog procesa dovodi na ulaz drugog procesa.
+- Po istom principu po kojem je u prethodnim slučajevima preusmjeravan ulaz-izlaz u neku datoteku, u okviru ljuske (shella) moguće je i preusmjeravanje na drugi proces. Tijekom takvog poziva naredbe nastaje sakrivena i privremena datoteka zvana pipe na principu FIFO reda (prvi untra, prvi vani), koja omogućava programima (procesima) da rade paralelno i uz sinkronizaciju sustava , te da prenose podatke iz jednog procesa u drugi.
+- Notacija za povezivanje dvaju procesa kanalom vrlo je jednostavno. Između dviju naredbi treba utipkati znak: | 
+- `$ naredba1 | naredba2`
+- Jednostavna notacija je imala značajan utjecaj na programsku metodologiju korisnika Unix/Linux OS-ova koji su potaknuti jednostavnošću počeli kombinirati postojeće programe umjesto gradnje novih.
+- Ideja je da se od niza malih komadića (programa) kombiniraju složeniji moduli sa određenim ciljem.
+- Tako je lakše definirati , dokumentirati i održavati manje cjeline; dok se povećava pouzdanost modula izvedenih iz osnovnih programa. 
+- Ako želimo preusmjeriti standardni izlaz i u datoteku i na zaslon, to možemo pomoću naredbe : tee.
+- Naredba tee čita ono što dobije na standardni ulaz , preusmjerava na standardni izlaz i u datoteku koja je postavljena u argumentu naredbe tee:
+
+`$ naredba | tee ime_datoteke`
+
+- Sljedećom naredbom ispisat ćemo sve datoteke koje počinju nizom passwd u direktorij /etc:
+
+```
+$ ls /etc/passwd* 
+/etc/passwd 
+/etc/passwd-
+```
+
+Ako se taj popis želi preusmjeriti u datoteku, dovoljno je u datoteku preusmjeriti standardni izlaz. Time se popis datoteka neće ispisati na zaslon (tj. standardni izlaz):
+
+```
+$ ls /etc/passwd* > /tmp/popis.txt 
+$ cat /tmp/popis.txt 
+/etc/passwd 
+/etc/passwd-
+```
+
+Ako se taj popis želi prikazati i na zaslonu (standardni izlaz) i preusmjeriti u datoteku, potrebno je rabiti naredbe tee:
+
+```
+$ ls /etc/passwd* | tee /tmp/popis.txt 
+/etc/passwd 
+/etc/passwd- 
+$ cat /tmp/popis.txt 
+/etc/passwd 
+/etc/passwd-
+```
+
