@@ -314,3 +314,19 @@ stdin (standard input), stdout (standard output), stderr (standard error) sa pri
 - Znakove < i > tumači ljuska (shell) i ne prosljeđuje ih samoj naredbi.
 - Zato nije potrebno posebno kodiranje u tom slučaju.
 
+Sljedeća naredba i slika prikazuju preusmjeravanje datoteke ime_dat na standardni ulaz procesa:
+`$ naredba < ime_dat`
+
+Sljedeća naredba i slika prikazuju preusmjeravanje standardnog izlaza procesa na datoteku ime_dat:
+`$ naredba > ime_dat`
+
+Sljedeća naredba i slika prikazuju preusmjeravanje datoteke ime_dat1 na standardni ulaz procesa, te standardnog izlaza procesa na datoteku ime_dat2:
+`$ naredba < ime_dat1 > ime_dat2`
+
+Sljedeća naredba i slika prikazuju preusmjeravanje standardnog izlaza procesa na datoteku ime_dat. Time se neće presnimiti datoteka ime_dat, tj. novi podaci će se zapisati na kraj datoteke:
+`$ naredba >> ime_dat`
+
+Ako se želi standardni izlaz za pogreške preusmjeriti u neku datoteku, to se postiže posebnim znakovima 2>. Slijedi primjer preusmjeravanja standardnog izlaza za pogreške u datoteku ime_datoteke:
+
+`$ naredba 2> ime_dat`
+
