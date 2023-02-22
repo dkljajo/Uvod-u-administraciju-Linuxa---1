@@ -423,3 +423,47 @@ $ trazi
 
 `$ unalias trazi`
 
+### 3.2.9. Izvršavanje više naredbi
+
+- Korisnik može izvršavati i više naredbi u nizu ; bez obzira na uspješnost prethodne pokrenute naredbe:
+
+`$ naredba1; naredba2; naredba3`
+
+- Naredbe se izvršavaju jedna za drugom samo u slučaju da prethodna naredba ima izlazni kod 0 (uspješno izvršena):
+
+`$ naredba1 && naredba2 && naredba3`
+
+- Naredbe se izvršavaju jedna za drugom samo u slučaju da prethodna naredba ima izlazni kod različit od 0 (neuspješno izvršena):
+
+`$ naredba1 || naredba2 || naredba3`
+
+- Prva naredba prikazuje ispis pogreške jer datoteka /etc/ne_postoji stvarno ne postoji. Naredba echo prikazuje izlazni kod prve naredbe, koji je 2. 
+
+```
+$ ls /etc/ne_postoji 
+ls: cannot access /etc/ne_postoji: No such file or directory 
+$ echo $? 
+2
+```
+
+- Ova naredba prikazuje ispis datoteke koja postoji, a budući da je naredba uredno izvršena, njezin izlazni kod je 0.
+
+```
+$ ls /etc/passwd 
+/etc/passwd 
+$ echo $? 
+0
+```
+
+- U sljedećem su se primjeru obje naredbe izvršile jer ne postoji uvjet izvršavanja druge naredbe:
+
+```
+$ ls /etc/ne_postoji ; ls /etc/passwd 
+ls: cannot access /etc/ne_postoji: No such file or directory 
+/etc/passwd
+```
+
+### 3.2.10 Naredba exec
+
+
+
