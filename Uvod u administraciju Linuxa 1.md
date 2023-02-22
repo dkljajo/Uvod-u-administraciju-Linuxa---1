@@ -223,3 +223,80 @@ Prompt ljuske završava znakom $ za običnog korisnika ili znakom # za administr
   $ echo "ovo je tekst" 
   ovo je tekst
   ```
+
+- Za razliku od DOS operativnog sustava , u kojem je bilo moguće pokrenuti upisivanjem samo ime za naredbu (bez njene putanje) u tekućem direktoriju čija putanja nije ekspicitno definirana u varijabli PATH, u okruženju Unix/Linux to nije moguće.
+Za pokretanje izvršne datoteke koja se nalazi u tekućem direktoriju treba se koristiti njenom relativnom ili apsolutnm putanjom.
+
+Npr. apsolutna putanja do naredbe fdisk:
+`# /sbin/fdisk`
+Njezina relativna putanja je:
+`# ../sbin/fdisk`
+
+### 3.2.2. Varijable ljuske (shell)
+
+- Varijable ljuske , slične su varijablama korištenim u drugim programskim jezicima.
+- U imenu varijable se mogu koristiti samo ALFANUMERIČKI ZNAKOVI.
+
+Naredba echo služi za ispis teksta na zaslonu ili za ispis vrijednosti varijable.
+Varijabla se poziva svojim imenom kojem prethodi znak $:
+```
+$ echo $BROJ 
+300 
+$ echo BROJ 
+BROJ
+```
+
+### 3.2.3. Vrste varijabli ljuske
+
+- Postoje 2 vrste varijabli:
+- LOKALNE;
+- IZVEZENE (EXPORTED);
+
+- Lokalne varijable dostupne su samo iz trenutačne ljuske.
+- Izvezene varijable dostupne su i iz trenutačne ljuske ali i svih ljuski (djece) koje su pokrenute iz te ljuske.
+
+- Naredbe SET i ENV služe za ispis definiranih varijabli:
+- Naredba SET - ispisuje sve varijable (i lokalne , i izvezene);
+- Naredba ENV - ispisuje sve izvezene varijable;
+
+- Izvezene varijable su globalne utoliko što ih "djeca" mogu referencirati!
+
+-  Svaka lokalna varijabla može postati izvezena koristeći naredbu : export.
+```
+$ env | grep BROJ 
+$ export BROJ 
+$ env | grep BROJ 
+BROJ=300
+```
+
+### 3.2.4. Osnovne predefinirane varijable
+
+- Kada se korisnik prijavi na sustav, pokrene se njegova ljuska u kojoj može izvršavati naredbe.
+- Ta ljuska ima PREDEFINIRANE VARIJABLE.
+- Najčešće rabljene varijable:
+- DISPLAY - Rabi ju grafičko okruženje X Windows System;
+- HISTFILE - Putanja do korisnikove datoteke s povijesti naredbi;
+- HOME - Putanja do korisnikova direktorija;
+- LOGNAME - Ime korisnika pod kojim se pokreće trenutna ljuska;
+- PATH - Popis direktorija u kojima ljuska pretražuje izvršne programe;
+- PWD - Korisnikov trenutni direktorij;
+- SHELL - Korisnikova trenutna ljuska;
+```
+$ echo $DISPLAY 
+:0 
+$ echo $HISTFILE 
+/home/tux/.bash_history 
+$ echo $HOME 
+/home/tux 
+$ echo $LOGNAME 
+tux 
+$ echo $PATH 
+:/usr/local/bin:/usr/bin:/bin 
+$ echo $PWD 
+/home/tux 
+$ echo $SHELL 
+/bin/bash
+```
+
+### 3.2.5. Preusmjeravanje standardnog ulaza i izlaza
+
