@@ -901,5 +901,30 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ## 6.1. REGULARNI IZRAZI
    
+   - U računarstvu, regularni izraz (regex) je niz znakova koji opisuje druge nizove znakova (string) u skladu sa određenim sintaksnim pravilima.
+   - Prvenstveno, svrha regularnog izraza je opisivanje uzorka za pretraživanje niza znakova.
+   
+   - Regularnim izrazima koriste se mnogi uređivači teksta i pomoćni programi.
+   - Mnogi programski jezici podržavaju regularne izraze za manipulacijom niza znakova (string).
+   
+   - Skup pomoćnih programa (uključujući uređivač ed i filter grep) koji se standardno distribuira s Unixovim distribucijama znatno je doprinio promociji i popularizaciji koncepta regularnih izraza.
+   
+   ### 6.1.2. Osnovni koncepti regexa
+   
+   - Regularni izraz, često zvan uzorak ili pattern, izraz je koji opisuje nizove znakova (string). Obično se rabe za davanje opisa nizova znakova, bez potrebe za nabrajanjem svih elemenata.
+   
+   - Većina formalizama pruža ove operacije pri konstrukciji regularnih izraza:
+   
+   - ALTERNACIJA :
+   Okomita crta razdvaja alternative. Na primjer, gray|grey se može skratiti u istovjetan izraz gr(a|e)y i pri tome spariti gray ili grey.
+   
+   - GRUPIRANJE:
+   Zagrade se rabe za definiranje područja djelovanja (scope) i prednosti operatora. Na primjer, gray|grey i gr(a|e)y su različiti uzorci, ali i jedan i drugi opisuju niz koji sadrži gray ili grey.
+   
+   - KVANTIFIKACIJA:
+   Kvantifikator nakon znaka ili skupine njih određuje učestalost pojavljivanja izraza koji prethodi. Najčešće se rabe kvantifikatori ?, *, i +
+   
+   ### 6.1.3. Tradicionalni regularni izrazi na Unixu
+   
    
    
