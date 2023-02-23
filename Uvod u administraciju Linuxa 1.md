@@ -558,3 +558,45 @@ $ pwd
 
 ## 4.2. Pronalaženje datoteka i direktorija
 
+### 4.2.1. Naredba find
+
+- U Linux okruženju ima više naredbi za pretraživanje datoteka i direktorija.
+- Najčešće se upotrebljavaju sljedeće:
+-  find ;
+-  locate;
+-  which.
+
+- Naredba find služi za pretraživanje datotečnog sustava. Njezina je sintaksa:
+
+find <direktorij> <kriterij> [-exec {} \;]
+   
+- <direktorij> argument znači da pretraga uključuje taj direktorij i sve poddirektorije u njemu.
+- Argumentom <kriterij> definiramo prema kojem kriteriju pretražujemo datoteke:
+   ime datoteke, tip (direktorij ili datoteka), vlasnik, vrijeme pristupa, izrade ili modificiranja.
+   
+ - Sljedeća naredba pretražuje datoteke u direktoriju /home koje se zovu .zshrc:
+ ```
+ $ find /home –name .zshrc 
+ /home/irako/.zshrc 
+ /home/sabina/.zshrc 
+ /home/tux/.zshrc
+  ```
+ 
+ - Naredba pretražuje datoteke u direktoriju /etc čije ime započinje znakom x:
+
+```
+$ find /etc -name "x*" 
+/etc/xinetd.d 
+/etc/xinetd.conf 
+/etc/xml 
+/etc/xml/xml-core.xml 
+/etc/xml/xml-core.xml.old 
+/etc/init.d/x11-common 
+/etc/init.d/xinetd
+```
+   
+### 4.2.3. Naredba locate
+
+   - Pretraživanje naredbom find može biti sporo.
+   - Pretraživanje
+
