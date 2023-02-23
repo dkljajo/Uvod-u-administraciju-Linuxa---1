@@ -935,7 +935,7 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    - $ - Sparuje kraj linije (bilo koje linije, kad je primjenjen u višelinijskom načinu rada).
    - () - Definira „označeni podizraz“. Što zagradama obuhvaćeni izraz sparuje, poslije može biti dohvaćeno za daljnju obradu, a način dohvata opisan je unosom za \n (sljedeći redak). „Označeni podizraz“ je također „blok“.
    - \n - Pri čemu je n znamenka od 1 do 9 - sparuje n-ti spareni označeni podizraz. Taj konstrukt je teoretski neregularan i nije prihvaćen u proširenoj sintaksi regularnih izraza.
-   - *   je Izraz od jednog znaka nakon kojeg slijedi "*" sparuje nula ili više kopija sebe. Na primjer, "ab*c" sparuje "ac", "abc", "abbbc" itd. "[xyz]*" sparuje "", "x", "y", "zx", "zyx", i tako dalje.
-   - +   je Izraz od jednog znaka nakon kojeg slijedi "+" sparuje jednu ili više kopija izraza. Na primjer, "ab+c" sparuje "abc", "abbbc" itd. "[xyz]+" sparuje "x", "y", "zx", "zyx", i tako dalje.
+     *   je Izraz od jednog znaka nakon kojeg slijedi "*" sparuje nula ili više kopija sebe. Na primjer, "ab*c" sparuje "ac", "abc", "abbbc" itd. "[xyz]*" sparuje "", "x", "y", "zx", "zyx", i tako dalje.
+     +   je Izraz od jednog znaka nakon kojeg slijedi "+" sparuje jednu ili više kopija izraza. Na primjer, "ab+c" sparuje "abc", "abbbc" itd. "[xyz]+" sparuje "x", "y", "zx", "zyx", i tako dalje.
  
    
