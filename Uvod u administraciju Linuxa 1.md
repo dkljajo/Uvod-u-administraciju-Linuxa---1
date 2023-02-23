@@ -1015,4 +1015,66 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    Zaslonski uređivač teksta vi može se naći u jednom od tri načina rada:
    1. zapovjedni način rada (command mode) - svi znakovi otkucani na tipkovnici ponašaju se kao naredbe;
+   2. način rada za unošenje teksta (insert mode) - služi za unos teksta, tipke imaju normalno značenje;
+   3. način rada zadnje linije (last line mode) - služi za unos dužih naredbi.
    
+   - Nakon pokretanja, uređivač teksta ulazi u zapovjedni način rada.
+   Prelazak u način rada za unošenje teksta ili u način rada zadnje linije moguć je jedino iz zapovjednog načina.
+   Prelazak iz zapovjednog načina rada u način rada za unošenje teksta ostvaruje se većim brojem naredbi za dodavanje teksta (biti će pojašnjene u nastavku), ali se      napuštanje načina rada za unošenje teksta i povratak u zapovjedni uvijek obavlja pritiskom na tipku [Esc].
+   
+   - Prelazak u način rada zadnje linije moguć je jedino naredbom : (dvotočka).
+   
+   - Iz načina rada zadnje linije izlazi se unošenjem željene naredbe i njezinim izvršavanjem pritiskom na tipku [Enter] ili tipkom [Esc] kada se način rada zadnje linije odmah napušta.
+   
+   ### 7.1.3. Naredbe za ulazak u način rada za unošenje teksta
+   
+   Iz zapovjednog se načina rada u način rada za unošenje teksta može prijeći pritiskom na odgovarajuću tipku na tipkovnici:
+   i - unos teksta na mjestu pokazivača
+   a - unos teksta jedno mjesto iza pokazivača
+   I - unos teksta na početku reda
+   A - unos teksta na kraju reda
+   o - unos teksta jedan red ispod
+   O - unos teksta jedan red iznad.
+   Jednom kad se uđe u način rada za unošenje teksta, sve što se upisuje, unosit će se kao tekst u datoteku. Iz načina rada za unošenje teksta izlazi se pritiskom na    tipku [Esc].
+   
+   ### 7.1.4. Pretraživanje teksta
+   
+   - Naredbe su za traženje određenog znaka u retku:
+   
+   f<znak> - pomiče pokazivač do prvog (ako je zadan broj n ispred naredbe) do n-tog pojavljivanja znaka danog uz naredbu; pretraživanje je desno od pokazivača
+   F<znak> - isto kao i prethodna naredba, ali je pretraživanje lijevo od mjesta pokazivača
+   t<znak> - pomiče pokazivač udesno i zaustavlja se na znaku ispred zadanog znaka
+   T<znak> - pomiče pokazivač ulijevo i zaustavlja se na znaku iza zadanog znaka
+   ; - ponavlja zadnju naredbu iz skupine t, F, t, T
+   , - isto kao i prethodna naredba, ali u obratnom smjeru od originalne naredbe.
+   Ako zadani znak nije pronađen u retku, pokazivač ostaje na mjestu prije početka pretraživanja, a iz terminala se čuje zvučni signal.
+   
+   ### 7.1.5. Promjene dijelova teksta
+   
+   - Naredbe su za promjenu teksta:
+   s - zamjenjuje znak ispod pokazivača novim tekstom, akcija se završava pritiskom na tipku [Esc]
+   r - zamjenjuje samo znak ispod pokazivača
+   R - više znakova ispod pokazivača, akcija se završava pritiskom na tipku [Esc]
+   cw - zamjenjuje tekst od pokazivača do kraja riječi novim tekstom.
+   U načinu rada zadnje linije moguće je mijenjati tekst upotrebom regularnih izraza.
+   U način rada zadnje linije može se ući pritiskom na tipku [:] iz zapovjednog načina rada.
+   
+   ### 7.1.6. Kopiranje teksta
+   
+   - Kopiranje teksta obavlja se u nekoliko koraka:
+   1. korak - kopiranje određenog dijela teksta u pomoćnu memoriju 
+   2. korak - pomicanje pokazivača na mjesto u tekstu kamo želimo staviti kopiju 
+   3. korak - kopiranje teksta iz pomoćne memorije na mjesto pokazivača.
+   
+   
+   ### 7.1.7. Spremanje promjena i izlazak
+   
+   Ako se žele spremiti promjene, izaći ili izaći bez spremanja promjena, potrebno je ponovno prijeći u zapovjedni način rada pritiskom na tipku [Esc] te se zatim         koristiti nekom od ovih naredbi:
+   :w - spremanje promjene
+   :q - izlazak iz uređivača teksta vi, ako nije bilo promjena od zadnjeg spremanja; ako je promjena bilo, program javlja grešku i ne izađe iz trenutačnog načina rada
+   :x - izlazak iz uređivača teksta vi i spremanje promjena, ako ih je bilo
+   :q! - izlazak iz uređivača teksta vi bez spremanja promjena
+   :wq - spremanje promjene i zatim izlazi iz vi-ja
+   
+   
+   # 📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV
