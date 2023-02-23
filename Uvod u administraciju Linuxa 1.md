@@ -722,4 +722,20 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### 4.5.1. Naredba touch
    
+   - Neka datoteka se može izraditi na više načina. 
+   - Najčešća naredba je : touch .
+   
+   `$ touch [opcije] datoteka`
+   
+   - Ukoliko datoteka ne postoji, naredba je onda izrađuje.
+   - Isto tako je moguće mjenjati vrijeme pristupa datoteci [-a], vrijeme zadnje izmjene [-m], ili pomoću opcije [-r] aplicirati vremenske atribute neke druge datoteke.
+   
+   `$ touch datoteka1.txt datoteka2.txt`
+   
+   - Sljedećom naredbom datoteka preuzima atribute datoteke /etc/passwd :
+   
+   `$ touch datoteka -r /etc/passwd`
+   
+   ### 4.5.2. Naredba dd
+   
    
