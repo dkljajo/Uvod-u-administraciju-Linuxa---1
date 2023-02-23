@@ -1013,4 +1013,6 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### 7.1.2. Načini rada uređivača teksta vi
    
+   Zaslonski uređivač teksta vi može se naći u jednom od tri načina rada:
+   1. zapovjedni način rada (command mode) - svi znakovi otkucani na tipkovnici ponašaju se kao naredbe;
    
