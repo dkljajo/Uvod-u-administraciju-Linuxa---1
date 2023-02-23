@@ -805,8 +805,8 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    - Log-datoteke stalno se povećevaju dodavanjem novih log zapisa na kraj datoteke. Ako se u realnom vremenu želi pregledati što se od svježih log-zapisa zapisuje u određenu log datoteku, može se rabiti naredba tail -f.
    
-   ### 5.2.2. Nardbe wc i nl
-   ### Brojanje linija, riječi ili znakova
+   ### 5.2.2. Naredba wc
+  
    
    Naredba wc (word count) služi za brojanje broja znakova, riječi i linija u nekoj tekstnoj datoteci:
    
