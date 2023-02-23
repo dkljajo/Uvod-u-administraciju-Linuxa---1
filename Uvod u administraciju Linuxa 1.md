@@ -997,3 +997,20 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
 
    # 📖 7 UREĐIVAČ TEKSTA VI
+   
+   ## 7.1. Uređivač teksta vi
+   
+   ### 7.1.1. Uređivači teksta
+   
+   - Za izradu novih datoteka i održavanje postojećih, koriste se različita programska pomagala među kojima uređivačima teksta (text editor) pripada najznačajnije mjesto. Uređivači se prvenstveno rabe za izradu i održavanje datoteka koje sadrže tekst (ASCII-znakove). U Unixovoj i u Linuxovoj okolini postoji nekoliko uređivača teksta:
+   1. ed - standardni linijski uređivač koji je vrlo jednostavan i može se koristiti na bilo kojem terminalu
+   2. ex - poboljšana inačica uređivača teksta ed
+   3. vi (visual) - zaslonski uređivač teksta koji radi sa stranicama teksta (stranica je obično veličine zaslona terminala)
+   4. sed (stream editor) - omogućuje ispravke nad nizom podataka (redaka teksta) jedne datoteke.
+   
+   - Uređivač teksta vi ugodniji je i brži za rad od linijskih editora, ali zahtijeva složenije terminale (pozicioniranje pokazivača, brisanje zaslona i dr.). Budući da su takvi terminali danas opće prihvaćeni (VT100, VT200), a podržani su i u svim grafičkim okruženjima (X-terminali), u nastavku je detaljnije obrađen zaslonski uređivač teksta vi koji se sigurno može naći u svakoj Linuxovoj inačici, a dostupan je i za druge operacijske sustave.
+   - Nakon boljeg upoznavanja s uređivačem teksta vi, svakom će korisniku biti jasno da naredbe za globalnu zamjenu i pretraživanje te rad s međuspremnicima koje on nudi, predstavljaju glavni nedostatak spomenutih korisniku pristupačnijih uređivača teksta.
+   
+   ### 7.1.2. Načini rada uređivača teksta vi
+   
+   
