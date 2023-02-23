@@ -1296,4 +1296,41 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### Proces
    
+   - Linux upravlja poslovima koristeći se procesima. Svakom se procesu pri pokretanju dodjeljuje jedinstveni identifikacijski broj (PID – Process Identification         Number). Proces može kreirati podprocese i tako stvarati hijerarhijsku strukturu s odnosom roditelj – dijete. Neke jednostavne naredbe koje su ugrađene u ljusci       ne kreiraju odvojeni proces. Primjer je naredba cd.
    
+   - Pri pokretanju operacijskog sustava prvi se pokreće proces systemd s PID-om 1 koji inicializira ostale procese. Na starijim distribucijama Linuxa (npr. do           Debiana 8), taj proces se zvao init.
+   
+   Procesi se dijele prema nekoliko kriterija:
+   - daemon - proces koji postoji zbog specifične uloge (npr. Apache daemon za servis http), pokreće se u pozadini i neaktivan je dok ih se ne pozove;
+   - parent - proces koji kreira druge procese; svaki proces osim procesa init ima roditeljski proces;
+   - child - pokreće ga drugi, roditeljski proces s oznakom PPID (parent PID);
+   - orhpan - aktivni proces čiji je roditeljski proces prekinut; takav proces preuzima proces init koji mu postaje roditeljski;
+   - zombie (defunct) - child-proces koji se sa svojim izlaznim podacima ne vraća roditeljskom procesu i ostaje „izgubljen“ u sustavu; može se izbrisati iz tablice       procesa jedino ponovnim pokretanjem (restart) operacijskog sustava.
+   
+   ### Nardeba ps
+   
+   Naredba ps prikazuje popis aktivnih procesa.
+   Sintaksa je:
+   $ ps [opcije]
+   
+   Najčešće se rabe opcije prikazane u tablici:
+   - ps -> Prikazuje informacije o svim procesima trenutačnog korisnika u trenutačnoj ljusci.
+   - ps -e -> Prikazuje informacije o svim procesima svih korisnika.
+   - ps -f -> Prikazuje sve raspoložive informacije o procesima trenutačnog korisnika.
+   - ps -u userid -> Prikazuje informacije o procesima određenog korisnika.
+   - ps -ef -> Prikazuje sve raspoložive informacije o svim procesima svih korisnika.
+   
+   Primjer je uporabe naredbe ps u kojem se prikazuju svi procesi svih korisnika:
+   
+   ```
+   # ps -ef UID PID PPID C STIME TTY TIME CMD 
+   root 1 0 0 2014 ? 00:08:24 init [2] 
+   root 2 0 0 2014 ? 00:00:00 [kthreadd] 
+   root 3 2 0 2014 ? 00:24:50 [ksoftirqd/0] 
+   root 6 2 0 2014 ? 00:00:00 [migration/0] 
+   root 7 2 0 2014 ? 00:03:42 [watchdog/0] 
+   root 8 2 0 2014 ? 00:00:00 [cpuset] 
+   root 9 2 0 2014 ? 00:00:00 [khelper] 
+   root 10 2 0 2014 ? 00:00:00 [kdevtmpfs] 
+   ...
+   ```
