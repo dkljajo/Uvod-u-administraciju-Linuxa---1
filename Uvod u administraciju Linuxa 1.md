@@ -1,4 +1,4 @@
-# Uvod u administraciju Linuxa 1 - Bilješke
+# Uvod u administraciju Linuxa 1 - Bilješke 🐧
 
 Ispod možete naći bilješke iz materijala [**Osnove administracije operacijskog sustava 1 (Linux) - Ivan Rako**](https://www.srce.unizg.hr/files/srce/docs/edu/l101_polaznik_1.pdf).
 Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu baviti administracijom operativnog sustava Linux.
@@ -498,3 +498,25 @@ root 9823 16169 0 18:00 pts/5 00:00:00 zsh
 
 
 # 📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA
+
+## 4.1. Kretanje po datotečnom sustavu
+
+### 4.1.1. Apsolutna i relativna putanja
+
+- Datoteci ili direktoriju može se pristupiti PUNOM PUTANJOM koja započinje znakom / (ishodišnim direktorijem - root), ili RELATIVNOM PUTANJOM koja započinje od trenutačnog direktorija u kojem se nalazi sam korisnik .
+
+- APSOLUTNA PUTANJA je neovisna o trenutačnom direktoriju i počinje znakom  / .
+
+```
+/etc/passwd
+/root/.bashrc
+/usr/local/bin/command
+```
+ - RELATIVNA PUTANJA ovisi o tome u kojem se direktoriju nalazi sam korisnik i ne počinje znakom /. Može započinjati znakovima .. (prethodni direktorij) ili znakom . (označava trenutačni direktorij).
+
+```
+passwd
+root/.bashrc
+../local/bin/command
+```
+
