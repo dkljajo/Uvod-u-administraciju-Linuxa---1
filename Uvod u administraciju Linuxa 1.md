@@ -1078,3 +1078,222 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    
    # 📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV
+   
+   ## 8.1. DISKOVI I PARTICIJE
+   
+   - Za razliku od MS Windows OS-a koji sve uređaje za pohranu podataka imenuje sa velikim slovom i dvotočkom (C:, D:, E:, ...) i  svaki od njih ima svoje zasebno stablo direktorija , Linux drugačije pristupa radu sa diskovima.
+   - Tvrdi su diskovi na operacijskom sustavu Linux prikazani kao datoteke u direktoriju /dev pri čemu su IDE-diskovi prikazani kao datoteke koje počinju slovima hd, a diskovi SCSI ili SATA počinju slovima sd. Budući da se u jednom računalu može nalaziti više tvrdih diskova, operacijski sustav dodjeljuje još jedno slovo imenu direktorija tvrdog diska, počevši od a do z i ovisno o broju diskova.
+   
+   ## PARTICIJE
+   
+   Particije su vezane uz tvrde diskove, a zapravo se mogu predočiti kao područja na nekom tvrdom disku (fizičkom disku), koja se opet ponašaju kao disk (logički        disk). Tako se može postići privid da na jednom disku imamo više diskova, ali manjeg kapaciteta.
+   Particijama se koristimo:
+   - ako želimo instalirati više od jednog operacijskog sustava; nemoguće je instalirati više od jednog operacijskog sustava po jednoj particiji.
+   - ako operacijski sustav treba više od jedne particije za svoj uredan rad
+   - ako se disk želi dodatno podijeliti za različite namjene
+   - ako se na istom fizičkom disku želi rabiti više od jednog datotečnog sustava
+
+   Kod operacijskog sustava Linux postoje barem dvije particije: jedna za operacijski sustav i druga za tzv. swap, odnosno privremenu radnu memoriju kada ponestane  one u računalu ( RAM-a).
+
+   Svaki tvrdi disk mora imati barem jednu particiju, što konkretno znači da se baš svaki tvrdi disk mora particionirati, jer je to uvjet da se na njega postavi neki datotečni sustav.
+
+   - Kod particija treba razlikovati primarne (primary) i proširene (extended) particije:
+    Primarna particija je nositelj datotečnog sustava. Zbog ograničenja u BIOS-u računala, na jedan fizički tvrdi disk mogu se postaviti najviše četiri primarne particije.
+    Proširena particija je nositelj (okvir) drugih primarnih particija. Na jedan se tvrdi disk može staviti najviše tri primarne particije i jedna proširena (extended), koja u sebi može imati više logičkih particija.
+
+   ## 8.2.  ALATI ZA PARTICIONIRANJE 
+   
+   Akcije brisanja i smanjivanja particije mogu se napraviti alatima kao što su:
+   - fips - jednostavan alat koji može smanjiti datotečne sustave FAT16 i FAT32;
+   - PartitionMagic - napredniji alat koji zna raditi sa svim drugim tipovima particija, kao što su NTFS, ext2, ext3, itd.
+   
+   ### Alati za particioniranje poslije instalacije
+   
+   Najčešći su alati:
+   fdisk - najrašireniji i najčešće korišten alat, podržava samo particijsku shemu MBR (Master Boot Record) koja dopušta particije do 2 TB
+   parted - nudi više mogućnosti od fdisk-a kao što je promjena veličine particije i podržava GPT (GUID Partition Table), koji dopušta particije do 9.4 ZB (ziliona        bajtova, ili 1021).
+   
+   Te se naredbe moraju pokretati pod administratorskim ovlastima, tj. pod ovlastima korisnika root.
+   Obje naredbe imaju opciju -l koja prikazuje trenutačni raspored particija po diskovima.
+   
+   ## 8.3. PROGRAMI ZA UČITAVANJE OPERACIJSKOG SUSTAVA
+   
+   ### GRUB
+   
+   Punim nazivom GRand Unified Bootloader, GRUB je prvi program koji se pokreće s tvrdog diska nakon što mu BIOS prepusti kontrolu učitavanja operacijskog sustava.      Izravno je zadužen za učitavanje jezgre operacijskog sustava, koja zatim učitava ostatak operacijskog sustava.
+   Taj je program trenutačno najrašireniji program za učitavanje operacijskog sustava u svijetu Linuxa, no nije i jedini. Naime, postoji i LILO- bootloader koji se i    dalje koristi, ali manje.
+   
+   Na zadnjoj verziji Debiana u upotrebi je verzija GRUB 2 tog programa. Značajna su poboljšanja u odnosu na GRUB:
+   - podrška za skripte
+   -  modularnost
+   -  mogućnost "spašavanja" (rescue mod)
+   -  teme
+   -  grafički izborni boot i poboljšani splash
+   -  pokretanje sustava sa slike LiveCD ISO koja se nalazi na čvrstom disku
+   -  nova struktura konfiguracijskih datoteka
+   -  podrška za ne-x86 platforme (npr. PowerPC)
+   
+   Najvažnija konfiguracijska datoteka je /boot/grub/grub.cfg, a u njoj se nalaze glavne postavke GRUB-a 2. Svaki odjeljak je označen s "(### BEGIN)" i poziva se na      mapu /etc/grub.d iz koje su dobivene postavke. Datoteka se grub.cfg može osvježiti naredbom update-grub koju treba pokrenuti kao korisnik root.
+   Svaki puta kada se instalira nova jezgra, osvježit će se i datoteka grub.cfg. Međutim, ta datoteka nije predviđena za uređivanje pa ju je moguće samo čitati (read    only).
+   
+   - Jezgra operacijskog sustava i pripadajuće datoteke (kao initrd) nalaze se u direktoriju /boot. initrd (initial ramdisk) je pomoćna datoteka koja služi za             učitavanje pomoćnog datotečnog sustava root prilikom pokretanja operacijskog sustava. U tom pomoćnom datotečnom sustavu nalaze upravljački programi za                 detektiranje hardvera kao što je tvrdi disk ili mrežna kartica.
+   
+   
+   
+   # 📖 9 DATOTEČNI SUSTAV
+   
+   ## 9.1. STRUKTURA DATOTEČNOG SUSTAVA
+   
+   - Datotečni sustav je vrsta pohranjivanja i organiziranja računalnih datoteka na medij za pohranu podataka. Danas su funkcije datotečnih sustava dio jezgre operacijskih sustava.
+   Prilikom instalacije operacijskog sustava najčešće se može odrediti koji ćemo datotečni sustav rabiti kao osnovni na nekom računalu, no na više vanjskih medija dostupnih nekome računalu moguće je rabiti više datotečnih sustava.
+   Svaki sustav na svoj način vodi evidenciju o datotekama. Moguće je dodavanje podrške za dodatne sustave. Popis podržanih sustava nalazi se u datoteci /proc/filesystems.
+   
+   Najčešći su datotečni sustavi:
+   - FAT - rabio se u vrijeme DOS-a na PC-kompatibilnim računalima (utemeljenim na procesoru 8086), nasljednik mu je vfat ili FAT32
+   - NTFS - datotečni sustav u uporabi na višezadaćnim inačicama operacijskog sustava Microsoft Windows (npr. NT4.0, 2000, XP)
+   - ext2 - Linuxov datotečni sustav
+   - ext3 - novija inačica, u odnosu na ext2 dodan je dnevnički sustav, tj. rabi se evidencija radnji koje treba izvršiti na vanjskom mediju prije samog izvođenja
+   - ext4 - trenutačno najnovija inačica, podržava diskove veličine 1 egzabajta
+   - XFS - SGI razvija kao zamjenu za EFS, radi na većini distribucija Linuxa
+   - ReiserFS - prvi Linuxov datotečni sustav s dnevničkim sustavom.
+   
+   ### Standard hijerarhije datotečnog sustava
+   
+   Linux je naslijedio hijerarhiju (strukturu) datotečnog sustava od Unixa, iako ne sasvim dosljedno (ovisi o distribuciji).
+   Hijerarhija datotečnog sustava prepoznaje:
+   - datoteka (file) je neki podatak ili program, odnosno - nositelj sadržaja;
+   - direktorij (directory) je „ladica“ koja objedinjuje datoteke, ali samostalno ne predstavlja nikakav sadržaj.
+   Razlikuju se dva logička pristupa rasporedu podataka:
+   samodostatna pakiranja, u kojima na jedno mjesto stavljamo jedan program i sve njegove popratne datoteke, biblioteke i pomoćne programe;
+   pakiranja datoteka prema svrsi i tipu, u kojima se jedan tip datoteka nalazi unutar jednog paketa makar se njima koriste različiti programi (npr. biblioteke svih      programa se nalaze u direktoriju biblioteke).
+   
+   Prednost samodostatnog pakiranja je u tome što je funkcionalno sve na jednom mjestu, no nedostatak je u tome što postoji puno duplikata. U računalu se taj            nedostatak manifestira kao trošenje diskovnog prostora.
+   Prednost je pakiranja datoteka prema svrsi i tipu u tome što se tako prostor rabi učinkovitije (nema duplikata), ali je nedostatak teža pretraživost podataka.        Međutim, računalo puno lakše pretražuje nego čovjek, tako da taj način pakiranja računalu ne predstavlja problem.
+   Platforma Windows više naginje prvom pristupu: većina se programa standardno nalazi u svojim direktorijima u direktoriju Program Files, a jedino se biblioteke        stavljaju na zajedničkom mjesto (dll datoteke). Sustavi Unix imaju drugačiju filozofiju. Unix se sastoji od puno malih alata koji rade zajedno da bi napravili        određeni zadatak i tako se programi međusobno rabe, a da bi se lakše pronašli svi se nalaze na jednom ili samo nekoliko mjesta. Biblioteke također imaju svoje        zajedničko mjesto, pa ako neki program treba neku biblioteku, pretražuje samo biblioteke, a ne čitav sustav.
+   
+   ## 9.2. UPRAVLJANJE DISKOVIMA I PARTICIJAMA
+   
+   ### Linuxovi datotečni sustavi
+   
+   Datotečni sustav način je pohranjivanja i organiziranja računalnih datoteka na medij za pohranu podataka. Danas su funkcije datotečnih sustava dio jezgre              operacijskih sustava. Prilikom instalacije operacijskog sustava najčešće se može odrediti koji će se datotečni sustav rabiti kao osnovni na nekom računalu, no na      više vanjskih medija dostupnih nekome računalu moguće je rabiti više datotečnih sustava.Najzastupljeniji datotečni sustav na operacijskom sustavu Linux je ext2, a    njegovi su nasljednici ext3 i ext4.
+   Datotečni sustav ext2 sastoji se od blokova podrazumne veličine 1024 bajtova = 1 kB.
+   Postoje tri vrste blokova:
+   - superblokovi (superblocks) – ponavlja se svakih 8193 bloka, sadrži informacije o veličini bloka, slobodnim inodovima, zadnjem vremenu montiranja itd.;
+   - inodeovi (inodes) – sadrži pokazivač na blokove s podacima; svaki inode je veličine 256 bajtova i sadrži informacije o korisniku, skupini, dozvolama i vremenu       stvaranja podatka na koji pokazuje;
+   - blokovi s podacima (data blocks) - sadrže podatke.
+   
+   ### Nadziranje potrošnje diskovnog prostora
+   
+   Naredba df služi za nadziranje potrošnje datotečnih sustava. Pokretanjem naredbe df ispisat će se svi montirani datotečni sustavi i njihova trenutačna potrošnja.      Opcija -h je korisna jer ispisuje veličine u megabajtima, gigabajtima ili terabajtima:
+   
+   ```
+   # df -h 
+   Filesystem Size Used Avail Use% Mounted on 
+   /dev/sda1 46G 14G 31G 31% / 
+   /dev/sda3 411G 262G 129G 68% /home 
+   tmpfs 797M 36K 797M 1% /run/user/2057 
+   /dev/sdb1 459G 218G 218G 50% /ext
+   ```
+   
+   ##  9.3. DOZVOLE I ATRIBUTI NAD DATOTEKAMA
+   
+   Dozvole koje direktoriji i datoteke imaju u Linux datotečnom sustavu mogu izgledati kriptično, no zapravo se radi o vrlo jednostavnom sustavu koji je lako            razumjeti i upotrebljavati. Budući da je, općenito gledano, u Linuxu sve prikazano u obliku datoteke, na isti se način i pristupa i upravlja datotekama i uređajima    te je jedna od važnijih stvari dobro razumijevanje sustava dozvola.
+
+   Čitanje, pisanje i izvršavanje tri su osnovne radnje koje možete napraviti s datotekom, a notacija slovima ih predstavlja kao:
+   - r - čitanje (read)
+   - w - pisanje (write)
+   - x - izvršavanje (execute).
+   
+   ### Korisnici
+   
+   Navedene dozvole izgledaju u redu za jednog korisnika, no Linux je sam po sebi postavljen kao višekorisnički sustav. Stoga se uvodi koncept vlasnika, pripadajuće      skupine i svih drugih, označeno slovima:
+   - o - vlasnik (owner)
+   - g - skupina (group)
+   - a - svi (all).
+   
+   Svaka datoteka i direktorij imaju definiranog vlasnika i vlasničku skupinu (može, ali i ne mora biti povezano), zato se i dozvole primjenjuju odvojeno za vlasnika    datoteke ili direktorija, vlasničku skupinu odnosno za sve druge.
+   
+   Naredbom ls može se provjeriti stanje vlasništva i dozvola nad određenom datotekom ili direktorijem.
+   
+   U sljedećem primjeru vidi se da je vlasnik direktorija root, vlasnička skupina je također root, vlasnik može čitati i pisati u tu datoteku, a vlasnička skupina i      svi drugi mogu samo čitati.
+   
+   ```
+   $ ls -al /etc/passwd 
+   -rw-r--r-- 2 root root 2416 Mar 9 11:55 /etc/passwd
+   ```
+   
+   ### Naredba chmod
+   
+   Naredba chmod standardna je Unixova naredba kojom određujemo prava pristupa određenoj datoteci ili određenom direktoriju. Poznavajući uporabu naredbe chmod možemo    konfigurirati siguran sustav u kojem će se točno znati koji korisnici smiju čitati, koji pisati, a koji izvršavati određene datoteke i direktorije. Ako su pravila    pristupa nepravilno postavljena vrlo je vjerojatno da aplikacije koje zahtijevaju određena prava pristupa neće dobro raditi, a i sam sustav može biti nesiguran.      Zbog toga su osnovna pravila čitanja, pisanja i izvršavanja inicijalno postavljena u svakoj Linuxovoj distribuciji, a mogu se promijeniti po želji upravo sa          naredbom chmod.
+   
+   U sljedećem će se primjeru datoteci /tmp/test.txt dodati prava da vlasnička skupina i svi drugi korisnici mogu u nju pisati, a naredbom ls provjerava se stanje        dozvola.
+   
+   ```
+   # ls -al /tmp/test.txt 
+   -rw-r--r-- 1 root root 0 May 18 13:09 /tmp/test.txt 
+   # chmod go+w /tmp/test.txt 
+   # ls -al /tmp/test.txt 
+   -rw-rw-rw- 1 root root 0 May 18 13:09 /tmp/test.txt
+   ```
+   
+   U sljedećem će se primjeru skripti /tmp/test.sh dodati da svi drugi imaju pravo pisanja i izvršavanja.
+   
+   ```
+   # ls -al /tmp/test.sh 
+   -rwxr-xr-- 1 root root 0 May 18 13:09 /tmp/test.sh 
+   # chmod o+wx /tmp/test.sh 
+   # ls -al /tmp/test.sh 
+   -rwxr-xrwx 1 root root 0 May 18 13:09 /tmp/test.sh
+   ```
+   
+   ### Oktalna notacija i naredba chmod
+   
+   U nekoliko su se prethodnih poglavlja za mijenjanje dozvola i vlasničkih odnosa nad elementima koristiIa slova, no često je jednostavnije i brže pregledati i          postaviti dozvole u oktalnoj notaciji – jednoznamenkasti broj koji predstavlja određenu dozvolu, a mjesto znamenke označava na kojeg se korisnika što odnosi:
+   
+   r => 4
+   w => 2
+   x => 1
+   
+   Zbroj ovih vrijednosti odvojenih dozvola označava ukupnu dozvolu (npr. “rw” pravo je 4+2=6, “rx” je 4+1=5).
+   Ukupna se oznaka za dozvole sastoji od četiri znamenke – s desne strane na lijevo: svi, vlasnička skupina, vlasnik, posebna upotreba.
+   Ako samo vlasniku i vlasničkoj skupini želimo dati isključivo dozvolu čitanja neke datoteke, oznaka će izgledati ovako: 0440. Da bismo samo vlasniku omogućili        pisanje i čitanje, a skupini i drugima samo čitanje, oznaku ćemo zapisati kao 0644.
+   Slijedi primjer uporabe naredbe chmod u slučaju oktalne notacije. Naredba ls služi za provjeru prethodno dodijeljenih dozvola.
+   
+   ```
+   # ls -al /tmp/test.txt 
+   -rw-r--r-- 1 root root 0 May 18 13:09 /tmp/test.txt 
+   # chmod 666 /tmp/test.txt 
+   # ls -al /tmp/test.txt 
+   -rw-rw-rw- 1 root root 0 May 18 13:09 /tmp/test.txt
+   ```
+   
+   ### Naredbe chown i chgrp
+   
+   Naredba chown služi za promjenu vlasnika i vlasničke skupine određene datoteke ili direktorija.
+   U sljedećem će se primjeru datoteci /tmp/test.sh promijeniti vlasnik iz root u tux. Naredba ls služi za provjeru.
+   
+   ```
+   # ls -al /tmp/test.txt 
+   -rw-r--r-- 1 root root 0 May 18 13:09 /tmp/test.txt 
+   # chown tux /tmp/test.txt 
+   # ls -al 
+   /tmp/test.txt -rw-r--r-- 1 tux root 0 May 18 13:09 /tmp/test.txt
+   ```
+   
+   U sljedećem će se primjeru pomoću naredbe chown promijeniti i vlasnik i vlasnička skupina.
+   
+   ```
+   # ls -al /tmp/test.txt 
+   -rw-r--r-- 1 root root 0 May 18 13:09 /tmp/test.txt 
+   # chown tux:tux /tmp/test.txt 
+   # ls -al /tmp/test.txt 
+   -rw-r--r-- 1 tux tux 0 May 18 13:09 /tmp/test.txt
+   ```
+   
+   # 📖 10 UPRAVLJANJE PROCESIMA
+   
+   ## 10.1. Upravljanje procesima
+   
+   ### Proces
+   
+   
