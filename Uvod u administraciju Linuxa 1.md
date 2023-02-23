@@ -705,4 +705,21 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### 4.4.2. Permanenetne poveznice
    
+   - PERMANENTNA POVEZNICA je još jedno ime za isti inode i referentni broj za svaku datoteku koji se povećava izradom svake nove poveznice na tu datoteku.
+   - Naredba ln se rabi i za izradu permanentnih poveznica.
+   
+   ```
+   $ ln passwd passwd.link 
+   
+   $ ls -al passwd passwd.link 
+   -rw-r--r-- 2 root root 2661 Mar 2 11:02 passwd 
+   -rw-r--r-- 2 root root 2661 Mar 2 11:02 passwd.link
+   ```
+   
+   - PERMANENTNE POVEZNICE MOGU BITI IZRAĐENE SAMO UNUTAR ISTOG DATOTEČNOG SUSTAVA.
+   
+   ## 4.5. IZRADA DATOTEKA
+   
+   ### 4.5.1. Naredba touch
+   
    
