@@ -9,11 +9,10 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 - [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-upravljanje-datotekama-i-direktorijima)
 - [📖 5 OBRADA TEKSTA](#5-obrada-teksta)
 - [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno-upravljanje-tekstom)
-- [📖 7 UREĐIVAČ TEKSTA VI](#7-Uređivač teksta vi)
-- [📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV](#8-Upravljanje uređajima u direktoriju /dev)
-- [📖 9 DATOTEČNI SUSTAV](#9- Datotečni sustav)
-- [📖 10 UPRAVLJANJE PROCESIMA](#10-Upravljanje procesima)
-- [📖 11 INSTALACIJA SOFTVERA](#5-Instalacija softvera)
+- [📖 7 UREĐIVAČ TEKSTA VI](#7-uređivač-teksta-vi)
+- [📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV](#8-upravljanje-uređajima-u-direktoriju-/dev)
+- [📖 9 DATOTEČNI SUSTAV](#9-datotečni-sustav)
+- [📖 10 UPRAVLJANJE PROCESIMA](#10-upravljanje-procesima)
 
 # 📖 1 UVOD
 
@@ -996,3 +995,5 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    
    
+
+   # 📖 7 UREĐIVAČ TEKSTA VI
