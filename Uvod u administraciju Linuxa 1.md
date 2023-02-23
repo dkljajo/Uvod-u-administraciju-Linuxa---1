@@ -687,3 +687,20 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    ### 4.4.1.  Simbolička poveznica
    
    
+   - SIMBOLIČKA POVEZNICA je alias ili prečac prema datoteci ili direktoriju.
+   - Izradom te poveznice kreirat će se novi: inode (dio na disku koji sadrži pokazivač) koji zapravo pokazuje na isto mjesto s podacima.
+   - Naredba `ln –s` rabi se za izradu simboličkih poveznica.
+   
+   `$ ln –s passwd passwd.sym `
+   
+   ```
+   $ ls -al passwd passwd.sym -rw-r--r-- 1 root root 2661 Mar 2 11:02 passwd lrwxrwxrwx 1 root root 6 Mar 3 16:11 passwd.sym -> passwd
+   ```
+   
+   Iz ovog se prikaza vidi da je passwd datoteka, a da je passwd.sym simbolička poveznica koja pokazuje na datoteku passwd. Isto tako se vidi da je referentni broj 1 i za datoteku i za simboličku poveznicu.
+   
+   - SIMBOLIČKE POVEZNICE SE MOGU IZRADITI KROZ RAZLIČITE DATOTEČNE SUSTAVE. TO ZNAČI DA SE NA JEDNOM DATOTEČNOM SUSTAVU MOŽE NAPRAVITI I SIMBOLIČKA POVEZNICA NA NEKI DRUGI DATOTEČNI SUSTAV.
+   
+   ### 4.4.2. Permanenetne poveznice
+   
+   
