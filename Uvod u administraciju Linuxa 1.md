@@ -520,3 +520,41 @@ root/.bashrc
 ../local/bin/command
 ```
 
+### Naredbe pwd i cd
+
+- Kao i u bilo kojem drugom strukturiranom datotečnom sustavu, postoji nekoliko alata koji korisniku pomažu se kretati kroz datotečni sustav (pwd i cd).
+
+- pwd (print working directory) - ova naredba prikazuje trenutačnu lokaciju korisnika. Lokacija se prikazuje u obliku apsolutne putanje do trenutnog direktorija.
+
+ - cd (change directory) - ova naredba služi za promjenu trenutačnog direktorija.
+
+```
+$ pwd 
+/root 
+$ cd /usr/local/bin/ 
+$ pwd 
+/usr/local/bin
+```
+
+- Oznaka ~ označava osobni direktorij korisnika. Ako se korisnik nalazi u nekom drugom direktoriju, u svoj se direktorij može vratiti naredbom cd ~.
+
+```
+$ pwd 
+/usr/local/bin 
+$ cd ~ 
+$ pwd 
+/home/korisnik
+```
+
+- Ako se korisnik želi vratiti u prethodni direktorij u kojem je bio, može se koristiti naredbom cd -.
+
+```
+$ pwd 
+/home/korisnik 
+$ cd - 
+$ pwd 
+/usr/local/bin
+```
+
+## 4.2. Pronalaženje datoteka i direktorija
+
