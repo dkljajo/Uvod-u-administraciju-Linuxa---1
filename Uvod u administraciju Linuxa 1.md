@@ -1334,3 +1334,48 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    root 10 2 0 2014 ? 00:00:00 [kdevtmpfs] 
    ...
    ```
+   
+   ### Naredba top
+   
+   Procesi se u realnom vremenu mogu pratiti naredbom top. Naredba ispisuje podatke koliko je dugo računalo uključeno, koliko je opterećenje računala (load average),    podatke o broju procesa i raspoloživim resursima poput procesora i memorije. Zatim slijedi detaljan popis procesa sličan rezultatu naredbe ps.
+   
+   ### Signali procesa
+   
+   Procesi se mogu zaustaviti slanjem signala procesima. Postoje 63 različita signala. Signal se rabi za obavještavanje procesa ili procesne niti o nekom događaju.      Svaki signal ima svoj jedinstveni naziv tj. kraticu koja počinje sa SIG (npr. SIGINT) i odgovarajući broj te po primitku signala proces reagira na određeni način.
+   Naredba kill služi za slanje određenog signala procesu.
+   Sintaksa je naredbe kill:
+   `$ kill SIGNAL PID_procesa`
+   
+   U sljedećem se primjeru naredbom ps provjerava postoji li proces vsftpd, zatim se šalje signal SIGKILL (9) (prekidanje procesa) te se na kraju provjerava je li        proces zaustavljen, tj. postoji li još uvijek.
+   
+   ```
+   # ps -ef | grep vsftpd 
+   root 2181 31984 0 17:56 pts/0 00:00:00 grep vsftpd 
+   root 27529 1 0 2014 ? 00:00:00 /usr/sbin/vsftpd 
+   # kill -9 27529 
+   # ps -ef | grep vsftpd 
+   root 2183 31984 0 17:56 pts/0 00:00:00 grep vsftpd 
+   #
+   ```
+   
+   ### Niceness i prioritet izvođenja procesa
+   
+   Niceness određuje koliko će procesi često doći na red za izvođenje. Vrijednost se kreće od -20 (češće dolazi na red) do 19 (rjeđe dolazi na red). Niceness nije        isto što i prioritet - sustav dodjeljuje prioritet na temelju nicenessa kojeg zadaje korisnik i to najčešće tako da pribraja niceness na zadani prioritet procesa,    ali ne mora biti tako.
+   
+   Većina korisničkih programa ima isti niceness, 0 (nula). Procesi prioriteta realtime imaju prednost nad ostalima bez obzira na niceness.
+   Korisnici, osim korisnika root, mogu postaviti vrijednosti od 0 do 19 (ta je postavka predodređena, regulira se u konfiguracijskoj datoteci                            /etc/security/limits.conf).
+   Postoje dvije naredbe za podešavanje prioriteta procesa:
+   - naredba renice mijenja niceness u odnosu na trenutačni, radi na već pokrenutim procesima
+   - naredba nice mijenja niceness u odnosu na zadani, koristi se kod pokretanja procesa.
+   
+   U sljedećem primjeru najprije će se naći PID procesa vsftpd naredbom ps, a zatim će se promijeniti prioritet tog procesa naredbom renice:
+   
+   ```
+   # ps -ef | grep vsftpd 
+   root 30861 1 0 13:12 ? 00:00:00 /usr/sbin/vsftpd 
+   root 30869 31984 0 13:12 pts/0 00:00:00 grep vsftpd 
+   # renice -5 30861 
+   30861 (process ID) old priority 0, new priority -5
+   ```
+   
+   
