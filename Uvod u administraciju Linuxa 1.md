@@ -937,4 +937,8 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    - \n - Pri čemu je n znamenka od 1 do 9 - sparuje n-ti spareni označeni podizraz. Taj konstrukt je teoretski neregularan i nije prihvaćen u proširenoj sintaksi regularnih izraza.
 
  
+   ## 6.2. PRONALAŽENJE SADRŽAJA U DATOTEKAMA
+   
+   ### 6.2.1. Naredba grep
+   
    
