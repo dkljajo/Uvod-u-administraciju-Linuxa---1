@@ -632,4 +632,58 @@ $ find /etc -name "x*"
    
    ### 4.3.1. Izrada novog direktorija
    
+  -  Naredba za izradu novog direktorija je mkdir. Kao argument se koristi apsolutna ili relativna putanja do direktorija koji se želi izraditi.
+Primjer je izrade direktorija /tmp/novi:
+   
+   `$ mkdir /tmp/novi`
+   
+   - Korisna je opcija -p, koja automatski stvara sve poddirektorije koji su potrebni.
+U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/novi/dir.
+   
+   `$ mkdir -p /tmp/novi/dir`
+   
+   ### 4.3.2. Brisanje direktorija
+   
+   - Naredbe za brisanje direktorija su rmdir ili rm -r. Ako ste prijavljeni kao root, možete dodati opciju -f koja prisiljava na brisanje svih datoteka u direktoriju     koji je zadan kao argument.
+   
+   - Ako se rabi više opcija naredbe (npr. i -r i -f) tada se one mogu pisati zajedno kao -rf.
+   - Naredba briše sve datoteke i poddirektorije unutar direktorija /dir1, tj. ostavlja direktorij /dir1 praznim:
+   
+   `$ rm –rf /dir1/*`
+   
+   ### 4.3.2. Kopiranje datoteka i direktorija
+   
+   - Naredba cp služi za brisanje datoteka i direktorija:
+   
+   cp [opcije] datoteka1 datoteka2
+   cp [opcije] datoteke direktorij
+   
+   - Važno je napomenuti da naredba cp datoteka1 datoteka2 kopira datoteka1 i ostavlja je nepromijenjenu.
+   
+   
+   - Isto se tako može kopirati nekoliko datoteka u direktorij, pomoću liste direktorija ili zamjenskog znaka *.
+   
+   - Naredba kopira sve datoteke i poddirektorije u direktoriju /dir bez samog direktorija /dir.
+   
+   `$ cp -r /dir/* /dir2/`
+   
+   ### 4.3.4. Premještanje i preimenovanje datoteka i direktorija
+   
+   Naredba mv služi za premještanje i preimenovanje datoteka i direktorija, a njena sintaksa je sljedeća:
+   
+    ```
+   mv [opcije] staroime novoime
+   mv [opcije] izvor odredište
+   mv [opcije] izvor direktorij
+    ```
+   
+   - Ako je staroime datoteka, a novoime direktorij, tada će premjestiti datoteku staroime u direktorij novoime.
+   - Ako su izvor i odredište u istom datotečnom sustavu, tada se datoteka neće kopirati nego će se ažurirati inode (pokazivač na blok s podacima) s informacijom o novoj lokaciji.
+   - Najčešće se rabe opcije -f (prisilno premještanje) i -i (interaktivni način rada), koje imaju isto značenje kao i kod naredbe cp.
+   
+   
+   ## 4.4. PERMANENTNE I SIMBOLIČKE POVEZNICE
+   
+   ### 4.4.1.  Simbolička poveznica
+   
    
