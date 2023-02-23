@@ -926,5 +926,16 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### 6.1.3. Tradicionalni regularni izrazi na Unixu
    
+   „Osnovna“ sintaksa regularnih izraza na Unixu je prema POSIX-ovim definicijama danas zastarjela, iako se naširoko rabi radi unazadne kompatibilnosti. Većina      pomoćnih programa na Unixu (npr. grep i sed) rabi tradicionalne regularne izraze, a prošireni se regularni izrazi koriste preko naredbenolinijskih argumenata.
    
+   - . - Sparuje bilo koji znak samo jednom. Unutar [ ] ima svoje uobičajeno značenje (točka).
+   - [] - Sparuje jedan znak sadržan unutar uglatih zagrada. Na primjer, [abc] sparuje "a", "b", ili "c". [a-z] sparuje sva mala slova.
+   - [^] - Sparuje jedan znak koji nije sadržan unutar uglatih zagrada. Na primjer, [^abc] sparuje bilo koji znak osim "a", "b", i "c". [^a-z] sparuje bilo koji znak koji nije malo slovo.
+   - ^ - Sparuje početak linije (bilo koje linije, kad je primjenjen u višelinijskom načinu rada).
+   - $ - Sparuje kraj linije (bilo koje linije, kad je primjenjen u višelinijskom načinu rada).
+   - () - Definira „označeni podizraz“. Što zagradama obuhvaćeni izraz sparuje, poslije može biti dohvaćeno za daljnju obradu, a način dohvata opisan je unosom za \n (sljedeći redak). „Označeni podizraz“ je također „blok“.
+   - \n - Pri čemu je n znamenka od 1 do 9 - sparuje n-ti spareni označeni podizraz. Taj konstrukt je teoretski neregularan i nije prihvaćen u proširenoj sintaksi regularnih izraza.
+   - * - Izraz od jednog znaka nakon kojeg slijedi "*" sparuje nula ili više kopija sebe. Na primjer, "ab*c" sparuje "ac", "abc", "abbbc" itd. "[xyz]*" sparuje "", "x", "y", "zx", "zyx", i tako dalje.
+   - + - Izraz od jednog znaka nakon kojeg slijedi "+" sparuje jednu ili više kopija izraza. Na primjer, "ab+c" sparuje "abc", "abbbc" itd. "[xyz]+" sparuje "x", "y", "zx", "zyx", i tako dalje.
+ 
    
