@@ -671,14 +671,14 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    Naredba mv služi za premještanje i preimenovanje datoteka i direktorija, a njena sintaksa je sljedeća:
    
-    ```
-   mv [opcije] staroime novoime
-   mv [opcije] izvor odredište
-   mv [opcije] izvor direktorij
-    ```
+      ```
+      mv [opcije] staroime novoime
+      mv [opcije] izvor odredište
+      mv [opcije] izvor direktorij
+      ```
    
    - Ako je staroime datoteka, a novoime direktorij, tada će premjestiti datoteku staroime u direktorij novoime.
-   - Ako su izvor i odredište u istom datotečnom sustavu, tada se datoteka neće kopirati nego će se ažurirati inode (pokazivač na blok s podacima) s informacijom o novoj lokaciji.
+   - Ako su izvor i odredište u istom datotečnom sustavu, tada se datoteka neće kopirati nego će se ažurirati inode (pokazivač na blok s podacima) s informacijom o          novoj lokaciji.
    - Najčešće se rabe opcije -f (prisilno premještanje) i -i (interaktivni način rada), koje imaju isto značenje kao i kod naredbe cp.
    
    
