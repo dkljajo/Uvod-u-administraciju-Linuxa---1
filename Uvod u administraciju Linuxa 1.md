@@ -1250,9 +1250,9 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    U nekoliko su se prethodnih poglavlja za mijenjanje dozvola i vlasničkih odnosa nad elementima koristiIa slova, no često je jednostavnije i brže pregledati i          postaviti dozvole u oktalnoj notaciji – jednoznamenkasti broj koji predstavlja određenu dozvolu, a mjesto znamenke označava na kojeg se korisnika što odnosi:
    
-   r => 4
-   w => 2
-   x => 1
+   - r => 4
+   - w => 2
+   - x => 1
    
    Zbroj ovih vrijednosti odvojenih dozvola označava ukupnu dozvolu (npr. “rw” pravo je 4+2=6, “rx” je 4+1=5).
    Ukupna se oznaka za dozvole sastoji od četiri znamenke – s desne strane na lijevo: svi, vlasnička skupina, vlasnik, posebna upotreba.
