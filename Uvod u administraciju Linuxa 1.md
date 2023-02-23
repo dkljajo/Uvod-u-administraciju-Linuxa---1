@@ -970,6 +970,28 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    - Naredba sed (skraćeno od stream editor) je alat koji služi za raščlanjivanje i mjenjanje teksta pomoću regularnih izraza.
    
+   - sed je linijski orijentiran alat za obradu teksta :
+   učitava tekst liniju po liniju sa ulaza koji može biti tok (stream) ili datoteka u unutrašnji međuspremnik.
+   Učitavanjem linije započinje ciklus.
+   U unutarnjem međuspremniku , sed primjenjuje jednu ili više operacija koje su definirane pomoću naredbe sed.
+   - sed naredbe se mogu zadati iz naredbene linije (-e) ili čitanjem iz datoteke (-f).
+   
+   `sed [opcije] 'naredbe' DATOTEKA`
+   
+   - Najčešća je uporaba te naredbe zamjena teksta. Ako se na kraju sed naredbe stavi g, to znači da će se zamjena izvršiti na cijeloj liniji, a ne samo kod prvog pojavljivanja traženog izraza na koje sed naiđe u jednoj liniji. Ako se g izostavi, zamjena će se izvršiti samo kod prvog pojavljivanja izraza u jednoj liniji.
+   
+   `$ sed 's/regularniizraz/zamjena/g' ulaznadatoteka`
+   
+   Primjer je uporabe naredbe, pri čemu se početak linije koja započinje izrazom root mijenja u tux:
+   
+   ```
+   $ grep root /etc/passwd 
+   root:x:0:0:root:/root:/bin/bash 
+   $ grep root /etc/passwd | sed s/^root/tux/g 
+   tux:x:0:0:root:/root:/bin/bash
+   ```
+   
+   
    
    
    
