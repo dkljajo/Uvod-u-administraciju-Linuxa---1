@@ -694,7 +694,9 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    `$ ln –s passwd passwd.sym `
    
    ```
-   $ ls -al passwd passwd.sym -rw-r--r-- 1 root root 2661 Mar 2 11:02 passwd lrwxrwxrwx 1 root root 6 Mar 3 16:11 passwd.sym -> passwd
+   $ ls -al passwd passwd.sym 
+   -rw-r--r-- 1 root root 2661 Mar 2 11:02 passwd 
+   lrwxrwxrwx 1 root root 6 Mar 3 16:11 passwd.sym -> passwd
    ```
    
    Iz ovog se prikaza vidi da je passwd datoteka, a da je passwd.sym simbolička poveznica koja pokazuje na datoteku passwd. Isto tako se vidi da je referentni broj 1 i za datoteku i za simboličku poveznicu.
