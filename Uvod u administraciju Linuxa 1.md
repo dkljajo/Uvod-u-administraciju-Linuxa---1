@@ -8,7 +8,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 - [📖 3 NAREDBENA LINIJA](#3-naredbena-linija)
 - [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-upravljanje-datotekama-i-direktorijima)
 - [📖 5 OBRADA TEKSTA](#5-obrada-teksta)
-- [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno upravljanje tekstom)
+- [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno-upravljanje-tekstom)
 - [📖 7 UREĐIVAČ TEKSTA VI](#7-Uređivač teksta vi)
 - [📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV](#8-Upravljanje uređajima u direktoriju /dev)
 - [📖 9 DATOTEČNI SUSTAV](#9- Datotečni sustav)
@@ -818,4 +818,88 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    
    ### 5.2.3. Naredbe od i hexdump
+   
+   - Sve dosada obrađene naredbe služile su za prikaz tekstualnih datoteka.
+   Međutim, postoji i nekoliko alata za prikaz binarnih datoteka. Najčešće se upotrebljavaju od (octal dump) i hexdump.
+   
+   ```
+   $ od /bin/ls 
+   0000000 042577 043114 000402 000001 000000 000000 000000 000000 
+   0000020 000002 000076 000001 000000 044200 000100 000000 000000 
+   0000040 000100 000000 000000 000000 133160 000001 000000 000000 
+   ...
+   ```
+   
+   - Primjer za uporabu naredbe hexdump:
+   
+   ```
+   $ hexdump /bin/ls 
+   0000000 457f 464c 0102 0001 0000 0000 0000 0000 
+   0000010 0002 003e 0001 0000 4880 0040 0000 0000 
+   0000020 0040 0000 0000 0000 b670 0001 0000 0000 
+   ...
+   ```
+   
+   ### 5.2.4. Naredba split
+   
+   - Ako se neka tekstna datoteka želi razdijeliti na više manjih datoteka, tome će poslužiti naredba split. Kriterij za smanjivanje je prema broju linija.
+   
+   ```
+   $ split -l 5 /etc/passwd 
+   $ ls 
+   xaa xab xac xad xae xaf xag xah
+   ```
+   
+   - Iz navedenog je primjera vidljivo da će se datoteka, preddefinirano, podijeliti na više manjih datoteka koje počinju znakom x.
+   
+   - Opcija -l 5 u naredbi određuje da će se svaka podijeljena datoteka sastojati od 5 linija. U gornjem primjeru datoteka /etc/passwd se sastoji od najviše 40 linija te je njenom podjelom nastalo 8 datoteka.
+   
+   - Ako se umjesto x želi rabiti neki drugi znak ili niz znakova, to treba upisati u argument:
+   ```
+   $ split -l 5 /etc/passwd passwd 
+   $ ls 
+   passwdaa passwdab passwdac passwdad passwdae passwdaf passwdag passwdah
+   ```
+   
+   
+   ### Naredbe uniq i sort
+   
+   - Kod prikaza tekstnih datoteka često se pojavljuju uzastopne identične linije.
+   - Naredba uniq ispisat će samo jednu uzastopnu liniju, makar je na svoj standardni ulaz dobila više istih linija.
+   ```
+   $ uniq > /tmp/UNIQUE 
+   linija 1 
+   linija 2 
+   linija 2 
+   linija 3 
+   linija 3 
+   linija 3 
+   linija 1
+   ```
+   
+   - Naredbom cat ispisat ćemo datoteku:
+   
+   ```
+   $ cat /tmp/UNIQUE 
+   linija 1 
+   linija 2 
+   linija 3 
+   linija 1
+   ```
+   
+   - Ako se žele izbaciti sve iste linije, koje nisu uzastopne, može se koristiti kombinacija naredbi sort i uniq.
+   - Naredba sort razvrstat će sve linije, tako da se istoznačne pojave jedna ispod druge, a izbacit će ih naredba uniq.
+   
+   ```
+   $ cat /tmp/UNIQUE | sort | uniq 
+   linija 1 
+   linija 2 
+   linija 3
+   ```
+   
+   # 📖 6 NAPREDNO UPRAVLJANJE TEKSTOM
+   
+   ## 6.1. REGULARNI IZRAZI
+   
+   
    
