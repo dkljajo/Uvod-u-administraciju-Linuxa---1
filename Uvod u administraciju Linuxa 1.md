@@ -935,10 +935,42 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    - $ - Sparuje kraj linije (bilo koje linije, kad je primjenjen u višelinijskom načinu rada).
    - () - Definira „označeni podizraz“. Što zagradama obuhvaćeni izraz sparuje, poslije može biti dohvaćeno za daljnju obradu, a način dohvata opisan je unosom za \n (sljedeći redak). „Označeni podizraz“ je također „blok“.
    - \n - Pri čemu je n znamenka od 1 do 9 - sparuje n-ti spareni označeni podizraz. Taj konstrukt je teoretski neregularan i nije prihvaćen u proširenoj sintaksi regularnih izraza.
-     +  Izraz od jednog znaka nakon kojeg slijedi "+" sparuje jednu ili više kopija izraza. Na primjer, "ab+c" sparuje "abc", "abbbc" itd. "[xyz]+" sparuje "x", "y", "zx", "zyx", i tako dalje.
+  
  
    ## 6.2. PRONALAŽENJE SADRŽAJA U DATOTEKAMA
    
    ### 6.2.1. Naredba grep
+   
+   - Naredba grep služi za pretraživanje teksta prema zadanim obrascima .
+   Ime naredbe nastalo je od prvih slova naredbi za uređivač teksta ed: Global Regular Expression i Print.
+   - Naredba grep pretražuje sadržaj datoteke ili standardni ulaz (STDIN) tražeći redove teksta koji odgovaraju zadanom obrascu koji može biti regularni izraz. Rezultat pretrage ispisuje se na standardni izlaz (STDOUT).
+   
+   `grep [OPCIJE] UZORAK DATOTEKA`
+   
+   Uzorak koji se pretražuje može biti znak, riječ ili tradicionalni regularni izraz. 
+   Sljedeća naredba traži tekst root u datoteci /etc/passwd.
+   
+   ```
+   $ grep root /etc/passwd 
+   root:x:0:0:root:/root:/bin/bash
+   ```
+   
+   Primjer je uporabe  te iste naredbe, samo sa još i regularnim izrazom:
+   ```
+   $ grep '^sy[ns]' /etc/passwd 
+   sys:x:3:3:sys:/dev:/bin/sh 
+   sync:x:4:65534:sync:/bin:/bin/sync
+   ```
+   
+   - Korisna opcija naredbe grep -v. Ona invertira izlaz, tj. prikazuje sve redove koji NE zadovoljavaju uzorak koji se pretražuje. U sljedećem primjeru ispisat će se sve linije koje nisu prazne:
+   
+   `$ grep -v "^$" /etc/inittab`
+   
+   ## 6.3. Stream editor - sed
+   
+   - Naredba sed (skraćeno od stream editor) je alat koji služi za raščlanjivanje i mjenjanje teksta pomoću regularnih izraza.
+   
+   
+   
    
    
