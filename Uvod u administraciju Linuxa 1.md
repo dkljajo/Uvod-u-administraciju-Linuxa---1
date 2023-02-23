@@ -752,3 +752,70 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    ## 5.1. PREGLED DATOTEKA
    
    ### 5.1.1. Naredba cat
+   
+   - Naredba cat služi za prikaz sadržaja neke datoteke. Njezina je sintaksa:
+   `cat [opcije] datoteka1`
+   
+   - Sljedeća naredba ispisuje sadržaj datoteke /etc/hosts:
+   
+   ```
+   $ cat /etc/hosts 
+   127.0.0.1 localhost 
+   
+   192.168.1.5 linux.srce.hr linux
+   ```
+   
+   - Ova naredba ispisuje sadržaj datoteke /etc/hosts i redni broj linije (opcija -n):
+   ```
+   $ cat -n /etc/hosts 
+   1 127.0.0.1 localhost 
+   2 
+   3 192.168.1.5 linux.srce.hr linux
+   ```
+   
+   ### 5.1.3 Naredba tac
+   
+   - Naredba cat prikazuje datoteku od njezina početka do kraja. Ako se datoteka želi prikazati od kraja do početka, tome služi naredba tac. Sintaksa naredbe je     identična naredbi cat.
+    - U sljedećem će se primjeru ispisat datoteka /etc/hosts od kraja do početka:
+   
+   ```
+   $ tac /etc/hosts 
+   192.168.1.5 linux.test.hr linux
+   
+   127.0.0.1 localhost
+   ```
+   
+   
+   ## 5.2. JEDNOSTAVNI ALATI
+   
+   ### 5.2.1. Naredbe head i tail
+   
+   - Naredbe head i tail najviše se koriste za analiziranje log datoteka.
+   - Log datoteke su tekstualne datoteke u koje se pohranjuju sistemski zapisi rada samog sustava (eng. logs).
+   - Te se naredbe također mogu upotrebljavati i za druge tekstualne datoteke.
+   - One po defaultu prikazuju 10 linija s početka ili kraja datoteke. osim u slučaju kada nije određen eksplicitno broj linija koje će se prikazati:
+   
+   - U sljedećem će se primjeru primjenom naredbe head prikazati prvih 20 linija datoteke /var/log/messages:
+   
+   `head -n 20 /var/log/messages`
+   
+   - Sljedeći primjer ispisuje datoteku /var/log/messages od njezina 25. retka do kraja datoteke:
+   
+   `tail -n +25 /var/log/messages`
+   
+   - Log-datoteke stalno se povećevaju dodavanjem novih log zapisa na kraj datoteke. Ako se u realnom vremenu želi pregledati što se od svježih log-zapisa zapisuje u određenu log datoteku, može se rabiti naredba tail -f.
+   
+   ### 5.2.2. Nardbe wc i nl
+   ### Brojanje linija, riječi ili znakova
+   
+   Naredba wc (word count) služi za brojanje broja znakova, riječi i linija u nekoj tekstnoj datoteci:
+   
+   ```
+   $ wc /etc/passwd 
+   224 437 12709 /etc/passwd
+   ```
+   Znači, datoteka /etc/passwd sadrži 224 linije, 437 riječi i 12709 znakova.
+   
+   
+   ### 5.2.3. Naredbe od i hexdump
+   
