@@ -7,7 +7,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 - [📖 2 INSTALACIJA LINUXA](#2-instalacija-linuxa)
 - [📖 3 NAREDBENA LINIJA](#3-naredbena-linija)
 - [📖 4 UPRAVLJANJE DATOTEKAMA I DIREKTORIJIMA](#4-upravljanje-datotekama-i-direktorijima)
-- [📖 5 OBRADA TEKSTA](#5- Obrada teksta)
+- [📖 5 OBRADA TEKSTA](#5-obrada-teksta)
 - [📖 6 NAPREDNO UPRAVLJANJE TEKSTOM](#6-Napredno upravljanje tekstom)
 - [📖 7 UREĐIVAČ TEKSTA VI](#7-Uređivač teksta vi)
 - [📖 8 UPRAVLJANJE UREĐAJIMA U DIREKTORIJU /DEV](#8-Upravljanje uređajima u direktoriju /dev)
@@ -738,4 +738,17 @@ U sljedećem će primjeru biti napravljeni direktorij /tmp/novi i u njemu /tmp/n
    
    ### 4.5.2. Naredba dd
    
+   - Druga često korištena naredba je : dd .
+   - Tom se naredbom kopiraju datoteke sa promjenjivim veličinama bloka.
    
+   - Glavne opcije su if= (input file, ulazna datoteka) i of= (output file, izlazna datoteka).
+   
+   - Za razliku od naredbe cp, naredba dd može kopirati cijeli uređaj i pritom sačuvati datotečni sustav koji leži na tom uređaju.
+   
+   
+   
+   # 📖 5 OBRADA TEKSTA
+   
+   ## 5.1. PREGLED DATOTEKA
+   
+   ### 5.1.1. Naredba cat
