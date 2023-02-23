@@ -598,5 +598,38 @@ $ find /etc -name "x*"
 ### 4.2.3. Naredba locate
 
    - Pretraživanje naredbom find može biti sporo.
-   - Pretraživanje
-
+   - Pretraživanje svih montiranih datotečnih sustava može potrajati čak i desetke minuta.
+   
+   - Zbog toga postoji naredba: locate, koja pretražuje osjetno brže.
+   - Radi tako da naredba: updatedb, koja se pokreće iz CRONA (servisa koji u točno određeno vrijeme pokreće određene programe, i to obično noću),
+   te da spremi popis datoteka i direktorija u lokalnu bazu podataka.
+   - Naredba locate pokreće upit u toj lokalnoj bazi podataka i tako puno brže dolazi do rezultata koje onda ispisuje na ekran od korisnika.
+   - Treba uzeti u obzir da pretražuje stanje montiranih datotečnih sustava u vrijeme zadnjeg izvršavanja naredbe: updatedb.
+   
+   `$ locate STRING`
+   
+   ( U argumentu se navodi dio imena datoteke ili direktorija koji se pretražuje)
+   
+   ```
+   $ locate /etc/pass 
+   /etc/passwd 
+   /etc/passwd-
+   ```
+   
+   ### 4.2.4. Naredba which
+   
+   - Naredba which vraća punu putanju do naredbe koju pretražujemo unutar direktorija definiranih u korisnikovoj varijabli PATH.
+   
+   `$ which STRING`
+    
+   ( U argumentu se navodi dio imena datoteke ili direktorija koji se traži.)
+   
+   ```
+   $ which ls /bin/ls
+   ```
+   
+   ## 4.3. UPRAVLJANJE DIREKTORIJIMA
+   
+   ### 4.3.1. Izrada novog direktorija
+   
+   
