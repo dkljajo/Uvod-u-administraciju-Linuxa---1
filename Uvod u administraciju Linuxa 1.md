@@ -1,7 +1,7 @@
 # Uvod u administraciju Linuxa 1 - Bilješke 🐧
 
 Ispod možete naći bilješke iz materijala [**Osnove administracije operacijskog sustava 1 (Linux) - Ivan Rako**](https://www.srce.unizg.hr/files/srce/docs/edu/l101_polaznik_1.pdf).
-Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu baviti administracijom operativnog sustava Linux.
+Navedeni materijali predstavljaju sjajan izvor informacija svima koji se počinju baviti administracijom operativnog sustava Linux.
 
 - [📖 1 UVOD](#1-uvod)
 - [📖 2 INSTALACIJA LINUXA](#2-instalacija-linuxa)
@@ -18,7 +18,7 @@ Navedeni materijali predtavljaju sjajan izvor informacija svima koji se počijnu
 
 - Linux je ime za jezgru (kernel) OS-a sličnog Unix-u, a dobio je ime po Linusu Torvaldsu.
 - Linus je 1991. g. objavio izvorni kod na Internetu, te pozvao sve zainteresirane da sudjeluju u njegovom daljnjem razvoju.
-Tako da je danas kernel Linuxa zajedničko djelo progtramera i hakera diljem svijeta.
+Tako da je danas kernel Linuxa zajedničko djelo programera i hakera diljem svijeta.
 - Linux je slobodan softver.
 Za njegov spontani razvoj zaslužni su brzi razvoj Interneta i licenca za korištenje GPL.
 1996. g. utemeljen je KDE (K Desktop Environment), koji je Linuxu dao vrhunsko grafičko sučelje.
